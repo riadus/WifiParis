@@ -1,4 +1,7 @@
-﻿using MvvmCross.Core.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using MvvmCross.Core.ViewModels;
+using WifiParisComplete.Data;
 using WifiParisComplete.Domain.Attributes;
 using WifiParisComplete.ViewModels;
 
@@ -10,6 +13,10 @@ namespace WifiParisComplete.Services
         public void ShowHomePage ()
         {
             ShowViewModel<HomeViewModel> ();
+        }
+
+        public void ShowMap (IEnumerable<WifiHotspot> hotspots)
+        {
         }
 
         public void ShowWifiPage ()

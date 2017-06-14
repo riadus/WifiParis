@@ -28,6 +28,14 @@ namespace WifiParisComplete.iOS
             bindingSet.Bind (FilterTextField)
                       .For (v => v.Placeholder)
                       .To (vm => vm.FilterPlaceholder);
+            bindingSet.Bind (LoadMapButton)
+                      .To (vm => vm.LoadMapCommand);
+            bindingSet.Bind (LoadMapButton)
+                      .For ("Title")
+                      .To (vm => vm.LoadMapButtonText);
+            bindingSet.Bind (LoadMapButton)
+                      .For (v => v.Enabled)
+                      .To (vm => vm.IsLoadMapAvailable);
 
             bindingSet.Bind (View)
                       .For (v => v.BackgroundColor)
