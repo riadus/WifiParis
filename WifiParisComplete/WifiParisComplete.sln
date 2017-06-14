@@ -9,9 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{CB6B5E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete", "Shared\WifiParisComplete\WifiParisComplete.csproj", "{98A5EBE7-5BB4-43EC-A2A1-AEF925CA6BF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Data", "Shared\WifiParisComplete\WifiParisComplete.Data\WifiParisComplete.Data.csproj", "{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Data", "Shared\WifiParisComplete.Data\WifiParisComplete.Data.csproj", "{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Domain", "Shared\WifiParisComplete\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj", "{9619B956-4A2E-4C64-A387-D7944370AD8A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Domain", "Shared\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj", "{9619B956-4A2E-4C64-A387-D7944370AD8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
