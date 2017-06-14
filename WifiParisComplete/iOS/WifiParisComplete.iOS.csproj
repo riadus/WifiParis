@@ -172,8 +172,6 @@
     <Compile Include="ViewControllers\WifiItemViewCell.designer.cs">
       <DependentUpon>WifiItemViewCell.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQLiteAsync.cs" />
-    <Compile Include="SQLite.cs" />
     <Compile Include="IoC\FilePathProviderIOS.cs" />
     <Compile Include="ViewControllers\HotspotsMapViewController.cs" />
     <Compile Include="ViewControllers\HotspotsMapViewController.designer.cs">
@@ -195,7 +193,7 @@
     </ProjectReference>
     <ProjectReference Include="..\Shared\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj">
       <Project>{D6AA1A6D-3285-4FD4-9E86-075922416E93}</Project>
-      <Name>WifiParisComplete.SqLite</Name>
+      <Name>WifiParisComplete.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

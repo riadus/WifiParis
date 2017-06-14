@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Drawing;
 using System.Linq;
 using CoreLocation;
-using Foundation;
 using MapKit;
 using MvvmCross.iOS.Views;
-using UIKit;
-using WifiParisComplete.Data;
 using WifiParisComplete.ViewModels;
 
 namespace WifiParisComplete.iOS
