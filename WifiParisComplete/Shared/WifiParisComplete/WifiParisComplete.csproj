@@ -33,6 +33,10 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="AppStart.cs" />
+    <Compile Include="Services\INavigationService.cs" />
+    <Compile Include="ViewModels\WifiHotspotsViewModel.cs" />
+    <Compile Include="Services\NavigationService.cs" />
+    <Compile Include="ViewModels\WifiHotspotItemViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">
@@ -53,6 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
+      <Project>{9619B956-4A2E-4C64-A387-D7944370AD8A}</Project>
+      <Name>WifiParisComplete.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

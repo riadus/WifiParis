@@ -8,7 +8,7 @@ namespace WifiParisComplete.Domain.API
 	{
 		public string Nom { get; set; }
         [JsonProperty("code_postal")]
-		public int CodePostal { get; set; }
+		public string CodePostal { get; set; }
 		public string Ville { get; set; }
         [JsonProperty ("numero_site_vdp")]
 		public string NumeroSiteVdp { get; set; }

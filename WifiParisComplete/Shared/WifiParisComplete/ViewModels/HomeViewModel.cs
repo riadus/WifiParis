@@ -1,25 +1,26 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
-using WifiParisComplete.Domain.Interfaces;
+using WifiParisComplete.Services;
 
 namespace WifiParisComplete.ViewModels
 {
     public class HomeViewModel : BaseViewModel
     {
-        private IBackendService BackendService { get; }
-        public HomeViewModel (IBackendService backendService)
+        private INavigationService NavigationService { get; }
+        public HomeViewModel (INavigationService navigationService)
         {
-            BackendService = backendService;
-            ClickMeCommand = new MvxAsyncCommand (ClickMe);
+            NavigationService = navigationService;
+            NavigationToWifiPageButtonText = "Aller à la page de la liste des points Wifi";
+            NavigateToWifiPageCommand = new MvxCommand (NavigateToWifiPage);
         }
 
-        public ICommand ClickMeCommand { get; }
+        public ICommand NavigateToWifiPageCommand { get; }
 
-        private async Task ClickMe ()
+        private void NavigateToWifiPage ()
         {
-            var records = await BackendService.GetRecords ();
+            NavigationService.ShowWifiPage ();
         }
+
+        public string NavigationToWifiPageButtonText { get; }
     }
 }

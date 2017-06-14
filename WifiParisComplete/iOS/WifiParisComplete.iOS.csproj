@@ -117,10 +117,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Views\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
-    <InterfaceDefinition Include="HomeViewController.xib" />
+    <InterfaceDefinition Include="Views\HomeView.xib" />
+    <InterfaceDefinition Include="Views\WifiHotspotsView.xib" />
+    <InterfaceDefinition Include="Views\WifiItemViewCell.xib" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -131,15 +136,32 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="HomeViewController.cs" />
-    <Compile Include="HomeViewController.designer.cs">
+    <Compile Include="ViewControllers\HomeViewController.cs" />
+    <Compile Include="ViewControllers\HomeViewController.designer.cs">
       <DependentUpon>HomeViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\WifiHotspotsViewController.cs" />
+    <Compile Include="ViewControllers\WifiHotspotsViewController.designer.cs">
+      <DependentUpon>WifiHotspotsViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BusyToBackgroundColorConverter.cs" />
+    <Compile Include="ViewControllers\WifiItemViewCell.cs" />
+    <Compile Include="ViewControllers\WifiItemViewCell.designer.cs">
+      <DependentUpon>WifiItemViewCell.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\WifiParisComplete\WifiParisComplete.csproj">
       <Project>{98A5EBE7-5BB4-43EC-A2A1-AEF925CA6BF2}</Project>
       <Name>WifiParisComplete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shared\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
+      <Project>{9619B956-4A2E-4C64-A387-D7944370AD8A}</Project>
+      <Name>WifiParisComplete.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

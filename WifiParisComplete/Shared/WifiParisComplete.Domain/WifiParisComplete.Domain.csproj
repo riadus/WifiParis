@@ -43,6 +43,9 @@
     <Compile Include="Interfaces\IApiClient.cs" />
     <Compile Include="Services\ApiClient.cs" />
     <Compile Include="DomainAssemblyReference.cs" />
+    <Compile Include="Interfaces\IMapper.cs" />
+    <Compile Include="Services\WifiHotspotMapper.cs" />
+    <Compile Include="Services\AddressMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -52,11 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

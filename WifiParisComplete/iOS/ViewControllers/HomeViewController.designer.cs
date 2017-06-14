@@ -16,13 +16,13 @@ namespace WifiParisComplete.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton SyncButton { get; set; }
+        UIKit.UIButton NavigateButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {
-            if (SyncButton != null) {
-                SyncButton.Dispose ();
-                SyncButton = null;
+            if (NavigateButton != null) {
+                NavigateButton.Dispose ();
+                NavigateButton = null;
             }
         }
     }

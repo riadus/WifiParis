@@ -29,6 +29,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WifiHotspot.cs" />
+    <Compile Include="Address.cs" />
+    <Compile Include="Coordinates.cs" />
+    <Compile Include="DataAssemblyReference.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
