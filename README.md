@@ -1,1 +1,1 @@
-# WifiParisd
+# WifiParis
