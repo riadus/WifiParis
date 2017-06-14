@@ -35,6 +35,7 @@ namespace WifiParisComplete.ViewModels
         private async Task LoadWifiHotspots ()
         {
             BusyCounter++;
+            UnitOfWork.DeleteAllWifiHotspots ();
             _hotspots = await BackendService.GetWifiHotspots (Filter).ConfigureAwait (false);
             WifiHotspotsList = _hotspots.Select (item => new WifiHotspotItemViewModel (item)).ToList ();
             BusyCounter--;
@@ -61,7 +62,7 @@ namespace WifiParisComplete.ViewModels
 
         private void LoadMap ()
         {
-            UnitOfWork.WifiHotspotRepository.Save (_hotspots);
+            UnitOfWork.SaveWifiHotspots (_hotspots);
             NavigationService.ShowMap ();
         }
 

@@ -1,5 +1,4 @@
-﻿using System;
-using MvvmCross.Core.ViewModels;
+﻿using MvvmCross.Core.ViewModels;
 using MvvmCross.iOS.Platform;
 using MvvmCross.Platform;
 using SQLite.Net.Platform.XamarinIOS;

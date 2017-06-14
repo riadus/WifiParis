@@ -17,7 +17,9 @@ namespace WifiParisComplete.ViewModels
         public override void Start ()
         {
             base.Start ();
-            _hotspots = UnitOfWork.WifiHotspotRepository.GetAll ().ToList();
+            _hotspots = UnitOfWork.GetAllWifiHotspots ().ToList();
         }
+
+        public List<WifiHotspot> ValidHotspots => _hotspots.Where (x => x.Coordinates != null && x.Coordinates.Latitude > 0 && x.Coordinates.Longitude > 0).ToList ();
     }
 }

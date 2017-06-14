@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using SQLite.Net;
 using SQLiteNetExtensions.Extensions;
 using WifiParisComplete.Data;
@@ -26,7 +25,7 @@ namespace WifiParisComplete.SqLite
 
         public void Save (IEnumerable<T> items)
         {
-            _connection.InsertAllWithChildren (items, true);
+            _connection.InsertAll (items, true);
         }
     }
 }

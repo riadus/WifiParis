@@ -1,8 +1,11 @@
-﻿using System;
+﻿using System.Collections.Generic;
+
 namespace WifiParisComplete.Data
 {
     public interface IUnitOfWork
     {
-        IRepository<WifiHotspot> WifiHotspotRepository { get; }
+        void SaveWifiHotspots (IEnumerable<WifiHotspot> wifiHotspots);
+        void DeleteAllWifiHotspots ();
+        IEnumerable<WifiHotspot> GetAllWifiHotspots ();
     }
 }

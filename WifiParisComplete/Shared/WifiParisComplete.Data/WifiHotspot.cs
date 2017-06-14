@@ -1,23 +1,22 @@
-﻿using SQLiteNetExtensions.Attributes;
+﻿using SQLite.Net.Attributes;
+using SQLiteNetExtensions.Attributes;
 
 namespace WifiParisComplete.Data
 {
     public class WifiHotspot : SavableData
     {
+        [PrimaryKey]
+        [AutoIncrement]
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
-        [ForeignKey (typeof (Address))]
-        public int? AddressId { get; set; }
-
-        [OneToOne (nameof (AddressId))]
+        [OneToOne]
         public Address Address { get; set; }
 
         public string SiteId { get; set; }
 
-        [ForeignKey (typeof (Coordinates))]
-        public int? CoordinatesId { get; set; }
-
-        [OneToOne (nameof (CoordinatesId))]
+        [OneToOne]
         public Coordinates Coordinates { get; set; }
     }
 }
