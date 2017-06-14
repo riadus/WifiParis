@@ -4,9 +4,9 @@ using System.Reflection;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Platform;
 using MvvmCross.Platform.IoC;
-using WifiParisComplete.Data;
 using WifiParisComplete.Domain;
 using WifiParisComplete.Domain.Attributes;
+using WifiParisComplete.SqLite;
 
 namespace WifiParisComplete
 {
@@ -22,6 +22,7 @@ namespace WifiParisComplete
         private void RegisterServicesFromAllAssemblies ()
         {
             RegisterServicesForAssembly (typeof (DomainAssemblyReference).GetTypeInfo ().Assembly);
+            RegisterServicesForAssembly (typeof (SQLiteReferenceAssembly).GetTypeInfo ().Assembly);
             RegisterServicesForAssembly (typeof (App).GetTypeInfo ().Assembly);
         }
 

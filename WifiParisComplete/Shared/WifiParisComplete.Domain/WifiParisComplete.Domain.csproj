@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IMapper.cs" />
     <Compile Include="Services\WifiHotspotMapper.cs" />
     <Compile Include="Services\AddressMapper.cs" />
+    <Compile Include="Interfaces\IFilePathProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />

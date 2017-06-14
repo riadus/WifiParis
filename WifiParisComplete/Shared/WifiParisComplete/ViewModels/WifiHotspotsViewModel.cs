@@ -7,17 +7,23 @@ using System.Windows.Input;
 using MvvmCross.Core.ViewModels;
 using WifiParisComplete.Data;
 using WifiParisComplete.Domain.Interfaces;
+using WifiParisComplete.Services;
 
 namespace WifiParisComplete.ViewModels
 {
     public class WifiHotspotsViewModel : BaseViewModel
     {
         private IBackendService BackendService { get; }
+        private IUnitOfWork UnitOfWork { get; }
+        private INavigationService NavigationService { get; }
         private List<WifiHotspot> _hotspots;
-        public WifiHotspotsViewModel (IBackendService backendService)
+        public WifiHotspotsViewModel (IBackendService backendService, IUnitOfWork unitOfWork, INavigationService navigationService)
         {
             BackendService = backendService;
+            UnitOfWork = unitOfWork;
+            NavigationService = navigationService;
             LoadWifiHotspotsCommand = new MvxAsyncCommand (LoadWifiHotspots);
+            LoadMapCommand = new MvxCommand (LoadMap);
             LoadWifiHotspotsButtonText = "Charger la liste des points Wifi";
             FilterPlaceholder = "Filtre par code postal";
             LoadMapButtonText = "Charger la carte";
@@ -55,7 +61,8 @@ namespace WifiParisComplete.ViewModels
 
         private void LoadMap ()
         {
-
+            UnitOfWork.WifiHotspotRepository.Save (_hotspots);
+            NavigationService.ShowMap ();
         }
 
         public bool IsLoadMapAvailable => WifiHotspotsList.Count () > 0;

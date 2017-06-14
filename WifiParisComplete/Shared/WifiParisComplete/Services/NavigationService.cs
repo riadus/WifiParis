@@ -15,8 +15,9 @@ namespace WifiParisComplete.Services
             ShowViewModel<HomeViewModel> ();
         }
 
-        public void ShowMap (IEnumerable<WifiHotspot> hotspots)
+        public void ShowMap ()
         {
+            ShowViewModel<HotspotsMapViewModel> ();
         }
 
         public void ShowWifiPage ()

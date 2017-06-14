@@ -8,6 +8,6 @@ namespace WifiParisComplete.Services
     {
         void ShowHomePage ();
         void ShowWifiPage ();
-        void ShowMap (IEnumerable<WifiHotspot> hotspots);
+        void ShowMap ();
     }
 }

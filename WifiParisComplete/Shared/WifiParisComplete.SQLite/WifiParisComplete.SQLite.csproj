@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</ProjectGuid>
+    <ProjectGuid>{D6AA1A6D-3285-4FD4-9E86-075922416E93}</ProjectGuid>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UseMSBuildEngine>true</UseMSBuildEngine>
     <OutputType>Library</OutputType>
-    <RootNamespace>WifiParisComplete.Data</RootNamespace>
-    <AssemblyName>WifiParisComplete.Data</AssemblyName>
+    <RootNamespace>WifiParisComplete.SqLite</RootNamespace>
+    <AssemblyName>WifiParisComplete.SQLite</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
   </PropertyGroup>
@@ -28,14 +28,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WifiHotspot.cs" />
-    <Compile Include="Address.cs" />
-    <Compile Include="Coordinates.cs" />
-    <Compile Include="DataAssemblyReference.cs" />
-    <Compile Include="IUnitOfWork.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="SavableData.cs" />
+    <Compile Include="UnitOfWork.cs" />
+    <Compile Include="SQLiteDatabase.cs" />
+    <Compile Include="SQLiteReferenceAssembly.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
+      <Project>{9619B956-4A2E-4C64-A387-D7944370AD8A}</Project>
+      <Name>WifiParisComplete.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

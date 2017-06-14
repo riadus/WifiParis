@@ -37,7 +37,7 @@
     <Compile Include="ViewModels\WifiHotspotsViewModel.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModels\WifiHotspotItemViewModel.cs" />
-    <Compile Include="ViewModels\MapViewModel.cs" />
+    <Compile Include="ViewModels\HotspotsMapViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">
@@ -68,6 +68,10 @@
     <ProjectReference Include="..\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
       <Project>{9619B956-4A2E-4C64-A387-D7944370AD8A}</Project>
       <Name>WifiParisComplete.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj">
+      <Project>{D6AA1A6D-3285-4FD4-9E86-075922416E93}</Project>
+      <Name>WifiParisComplete.SqLite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
