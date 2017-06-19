@@ -16,7 +16,7 @@ namespace WifiParisComplete.ViewModels
         private IBackendService BackendService { get; }
         private IUnitOfWork UnitOfWork { get; }
         private INavigationService NavigationService { get; }
-        private List<WifiHotspot> _hotspots;
+        private IEnumerable<WifiHotspot> _hotspots;
         public WifiHotspotsViewModel (IBackendService backendService, IUnitOfWork unitOfWork, INavigationService navigationService)
         {
             BackendService = backendService;

@@ -177,6 +177,7 @@
     <Compile Include="ViewControllers\HotspotsMapViewController.designer.cs">
       <DependentUpon>HotspotsMapViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="IoC\MessageHandlerProviderIOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Shared\WifiParisComplete\WifiParisComplete.csproj">

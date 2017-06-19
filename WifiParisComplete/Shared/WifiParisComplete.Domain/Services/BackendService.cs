@@ -22,13 +22,13 @@ namespace WifiParisComplete.Domain.Services
             WifiHotspotMapper = wifiHotspotMapper;
         }
 
-        public async Task<List<Record>> GetMoreRecords(int lastId)
+        public async Task<IEnumerable<Record>> GetMoreRecords(int lastId)
         {
             var records = await ApiClient.GetAsync<List<Record>> ($"?dataset=liste-des-antennes-wifi&start={lastId}");
             return records;
         }
 
-        public async Task<List<WifiHotspot>> GetWifiHotspots(string postalCodeFilter)
+        public async Task<IEnumerable<WifiHotspot>> GetWifiHotspots(string postalCodeFilter)
         {
             await Task.Delay (1000).ConfigureAwait (false);
             var url = "?dataset=liste-des-antennes-wifi";

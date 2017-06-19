@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Data", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.Domain", "Shared\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj", "{9619B956-4A2E-4C64-A387-D7944370AD8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.SqLite", "Shared\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj", "{D6AA1A6D-3285-4FD4-9E86-075922416E93}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParisComplete.SQLite", "Shared\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj", "{D6AA1A6D-3285-4FD4-9E86-075922416E93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

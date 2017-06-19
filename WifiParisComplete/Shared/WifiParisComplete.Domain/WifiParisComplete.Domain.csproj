@@ -47,6 +47,8 @@
     <Compile Include="Services\WifiHotspotMapper.cs" />
     <Compile Include="Services\AddressMapper.cs" />
     <Compile Include="Interfaces\IFilePathProvider.cs" />
+    <Compile Include="Services\MokeBackendService.cs" />
+    <Compile Include="Interfaces\IMessageHandlerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
