@@ -71,7 +71,7 @@
     </ProjectReference>
     <ProjectReference Include="..\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj">
       <Project>{D6AA1A6D-3285-4FD4-9E86-075922416E93}</Project>
-      <Name>WifiParisComplete.SqLite</Name>
+      <Name>WifiParisComplete.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />

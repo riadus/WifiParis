@@ -23,6 +23,7 @@ namespace WifiParisComplete.ViewModels
             UnitOfWork = unitOfWork;
             NavigationService = navigationService;
             LoadWifiHotspotsCommand = new MvxAsyncCommand (LoadWifiHotspots);
+            LoadMoreWifiHotspotsCommand = new MvxAsyncCommand (LoadMoreWifiHotspots);
             LoadMapCommand = new MvxCommand (LoadMap);
             LoadWifiHotspotsButtonText = "Charger la liste des points Wifi";
             FilterPlaceholder = "Filtre par code postal";
@@ -31,33 +32,62 @@ namespace WifiParisComplete.ViewModels
 
         public ICommand LoadMapCommand { get; }
         public ICommand LoadWifiHotspotsCommand { get; }
+        public ICommand LoadMoreWifiHotspotsCommand { get; }
+
+        private async Task LoadMoreWifiHotspots ()
+        {
+            BusyCounter++;
+            if (_canLoadMore) {
+                var newHostpots = await BackendService.GetMoreWifiHotspots (Filter).ConfigureAwait (false);
+                _hotspots.AddRange (newHostpots);
+                foreach (var item in newHostpots.Select (item => new WifiHotspotItemViewModel (item))) {
+                    WifiHotspotsList.Add (item);
+                }
+            }
+            BusyCounter--;
+        }
 
         private async Task LoadWifiHotspots ()
         {
             BusyCounter++;
             UnitOfWork.DeleteAllWifiHotspots ();
-            _hotspots = await BackendService.GetWifiHotspots (Filter).ConfigureAwait (false);
-            WifiHotspotsList = _hotspots.Select (item => new WifiHotspotItemViewModel (item)).ToList ();
+            _hotspots = (await BackendService.GetWifiHotspots (Filter).ConfigureAwait (false)).ToList();
+            WifiHotspotsList = new MvxObservableCollection<WifiHotspotItemViewModel>(_hotspots.Select (item => new WifiHotspotItemViewModel (item)));
+            _canLoadMore = true;
             BusyCounter--;
         }
 
         public string LoadMapButtonText { get; }
         public string LoadWifiHotspotsButtonText { get; }
+        MvxObservableCollection<WifiHotspotItemViewModel> _wifiHotspotsList;
 
-
-        private IEnumerable<WifiHotspotItemViewModel> _wifiHotspotsList;
-
-        public IEnumerable<WifiHotspotItemViewModel> WifiHotspotsList {
+        public MvxObservableCollection<WifiHotspotItemViewModel> WifiHotspotsList {
             get {
                 return _wifiHotspotsList;
             }
-            private set {
-                SetProperty (ref _wifiHotspotsList, value);
-                RaiseAllPropertiesChanged ();
+
+            set {
+                _wifiHotspotsList = value;
+                RaisePropertyChanged ();
+                RaisePropertyChanged (nameof (IsLoadMapAvailable));
             }
         }
 
-        public string Filter { get; private set; }
+        private string _filter;
+        public string Filter {
+            get {
+                return _filter;
+            }
+
+            private set {
+                _filter = value;
+                _canLoadMore = false;
+                RaisePropertyChanged ();
+            }
+        }
+
+        private bool _canLoadMore;
+
         public string FilterPlaceholder { get; }
 
         private void LoadMap ()

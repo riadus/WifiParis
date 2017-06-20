@@ -12,10 +12,10 @@ namespace WifiParisComplete.Domain.Services
     public class ApiClient : IApiClient
     {
         private HttpClient HttpClient { get; }
-        private const string BaseAddress = "https://opendata.paris.fr/api/records/1.0/search/?dataset=liste-des-antennes-wifi";
-        public ApiClient()
+        private const string BaseAddress = "https://opendata.paris.fr/api/records/1.0/search/";
+        public ApiClient(IMessageHandlerProvider messageHandlerProvider)
         {
-            HttpClient = new HttpClient
+            HttpClient = new HttpClient(messageHandlerProvider.NativeHandler)
             {
                 BaseAddress = new Uri(BaseAddress)
             };

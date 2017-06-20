@@ -15,32 +15,48 @@ namespace WifiParisComplete.Domain.Services
     {
         private IMapper<Record, WifiHotspot> WifiHotspotMapper { get; }
         private IApiClient ApiClient { get; }
-
+        private int _lastId;
         public BackendService (IApiClient apiClient, IMapper<Record, WifiHotspot> wifiHotspotMapper)
         {
             ApiClient = apiClient;
             WifiHotspotMapper = wifiHotspotMapper;
         }
 
-        public async Task<List<Record>> GetMoreRecords(int lastId)
+        public async Task<IEnumerable<WifiHotspot>> GetMoreWifiHotspots (string postalCodeFilter)
         {
-            var records = await ApiClient.GetAsync<List<Record>> ($"?dataset=liste-des-antennes-wifi&start={lastId}");
-            return records;
+            //await Task.Delay (1000).ConfigureAwait (false);
+            var url = $"{GetUrl (postalCodeFilter)}&start={_lastId}";
+            var list = await GetData (url);
+            _lastId += list.Count ();
+            return list;
         }
 
-        public async Task<List<WifiHotspot>> GetWifiHotspots(string postalCodeFilter)
+        public async Task<IEnumerable<WifiHotspot>> GetWifiHotspots(string postalCodeFilter)
         {
-            await Task.Delay (1000).ConfigureAwait (false);
+            //await Task.Delay (1000).ConfigureAwait (false);
+            var url = GetUrl (postalCodeFilter);
+            var list = await GetData (url);
+            _lastId = list.Count ();
+            return list;
+        }
+
+        private string GetUrl (string postalCodeFilter)
+        {
             var url = "?dataset=liste-des-antennes-wifi";
-            if (!string.IsNullOrEmpty (postalCodeFilter))
-            {
+            if (!string.IsNullOrEmpty (postalCodeFilter)) {
                 url += $"&refine.code_postal={postalCodeFilter}";
             }
+            return url;
+        }
+
+        private async Task<IEnumerable<WifiHotspot>> GetData (string url)
+        {
             try {
                 var rootObject = await ApiClient.GetAsync<RootObject> (url);
-                return rootObject.Records.Select (x => WifiHotspotMapper.Map (x)).ToList ();
+                var list = rootObject.Records.Select (x => WifiHotspotMapper.Map (x)).ToList ();
+                return list;
             } catch (Exception e) {
-                Debug.WriteLine($"error : {e.Message}");
+                Debug.WriteLine ($"error : {e.Message}");
                 return new List<WifiHotspot> ();
             }
         }

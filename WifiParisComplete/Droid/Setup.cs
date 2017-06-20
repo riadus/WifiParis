@@ -1,18 +1,19 @@
-﻿using MvvmCross.Core.ViewModels;
-using MvvmCross.iOS.Platform;
+﻿using System;
+using Android.Content;
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Droid.Platform;
 using MvvmCross.Platform;
-using SQLite.Net.Platform.XamarinIOS;
+using SQLite.Net.Platform.XamarinAndroid;
 using WifiParisComplete.Domain;
-using WifiParisComplete.iOS.Services;
 using WifiParisComplete.SqLite;
 
-namespace WifiParisComplete.iOS
+namespace WifiParisComplete.Droid
 {
-    public class Setup : MvxIosSetup
+    public class Setup : MvxAndroidSetup
     {
-        public Setup (IMvxApplicationDelegate applicationDelegate, UIKit.UIWindow window) : base (applicationDelegate, window)
+        public Setup (Context applicationContext) : base(applicationContext)
         {
-
+            
         }
 
         protected override IMvxApplication CreateApp ()
@@ -26,13 +27,13 @@ namespace WifiParisComplete.iOS
             var pathProvider = Mvx.Resolve<IFilePathProvider> ();
             var path = pathProvider.DatabasePath;
             SQLiteDatabase.FilePath = path;
-            SQLiteDatabase.Initialize (new SQLitePlatformIOS ());
+            SQLiteDatabase.Initialize (new SQLitePlatformAndroid ());
         }
 
         protected override void InitializePlatformServices ()
         {
-            Mvx.RegisterType<IFilePathProvider, FilePathProviderIOS>();
-            Mvx.RegisterType<IMessageHandlerProvider, MessageHandlerProviderIOS> ();
+            Mvx.RegisterType<IFilePathProvider, FilePathProviderDroid> ();
+            Mvx.RegisterType<IMessageHandlerProvider, MessageHandlerProviderDroid> ();
             base.InitializePlatformServices ();
         }
     }
