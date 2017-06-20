@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="16">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModuleProvider="" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" id="3" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="200" y="285" width="200" height="30"/>
+                                <state key="normal" title="Aller à la page de la liste des points Wifi">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue id="115" destination="47" kind="show"/>
+                                </connections>
+                                <constraints>
+                                    <constraint id="127" firstItem="3" firstAttribute="width" constant="200"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="4" firstItem="8bC-Xf-vdC" firstAttribute="centerX" secondItem="3" secondAttribute="centerX"/>
+                            <constraint id="5" firstItem="8bC-Xf-vdC" firstAttribute="centerY" secondItem="3" secondAttribute="centerY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="NavigateToWifiHotspotsButton" destination="3" id="name-outlet-3"/>
+                    </connections>
+                    <navigationItem title="Home" id="39" key="navigationItem"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <scene sceneID="15">
+            <objects>
+                <navigationController id="16" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="18">
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="40" destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="19" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-81" y="723"/>
+        </scene>
+        <scene sceneID="46">
+            <objects>
+                <viewController id="47" sceneMemberID="viewController" customClass="WifiHotspotsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="44"/>
+                        <viewControllerLayoutGuide type="bottom" id="45"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="48">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="133" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="220" y="93" width="161" height="30"/>
+                                <state key="normal" title="Charger les bornes Wifi">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="LoadButton_TouchUpInside:" destination="47" id="204" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="136" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Code postal">
+                                <rect key="frame" x="234" y="165" width="132" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <constraints>
+                                    <constraint id="139" firstItem="136" firstAttribute="width" constant="132"/>
+                                </constraints>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="140" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="245" y="244" width="111" height="30"/>
+                                <state key="normal" title="Charger la carte">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="143" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="0.0" y="304" width="600" height="296"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="221" reuseIdentifier="Cell_Id" customClass="WifiHotspotCell">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="221" id="222">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="231" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="0">
+                                                    <rect key="frame" x="10" y="39" width="305" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <constraints>
+                                                        <constraint id="288" firstItem="231" firstAttribute="width" constant="305"/>
+                                                    </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="288"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="288"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="234" translatesAutoresizingMaskIntoConstraints="NO">
+                                                    <rect key="frame" x="273" y="39" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="237" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                                    <rect key="frame" x="200" y="29" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="240" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                                    <rect key="frame" x="223" y="68" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint id="238" firstItem="237" firstAttribute="centerY" secondItem="222" secondAttribute="centerY"/>
+                                                <constraint id="239" firstItem="222" firstAttribute="trailing" secondItem="237" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="241" firstItem="240" firstAttribute="top" secondItem="237" secondAttribute="bottom" constant="8"/>
+                                                <constraint id="242" firstItem="222" firstAttribute="trailing" secondItem="240" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="258" firstItem="237" firstAttribute="top" secondItem="222" secondAttribute="top" constant="39"/>
+                                                <constraint id="259" firstItem="222" firstAttribute="trailing" secondItem="237" secondAttribute="trailing" constant="10"/>
+                                                <constraint id="275" firstItem="234" firstAttribute="centerX" secondItem="222" secondAttribute="centerX" constant="112">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="1"/>
+                                                </constraint>
+                                                <constraint id="276" firstItem="234" firstAttribute="leading" secondItem="222" secondAttribute="leading" constant="279" relation="greaterThanOrEqual">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                </constraint>
+                                                <constraint id="277" firstItem="222" firstAttribute="trailing" secondItem="234" secondAttribute="trailing" constant="55" relation="greaterThanOrEqual">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="20"/>
+                                                </constraint>
+                                                <constraint id="278" firstItem="234" firstAttribute="top" secondItem="222" secondAttribute="top" constant="20"/>
+                                                <constraint id="289" firstItem="231" firstAttribute="leading" secondItem="222" secondAttribute="leading" constant="10"/>
+                                                <constraint id="290" firstItem="231" firstAttribute="top" secondItem="222" secondAttribute="top" constant="39"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="275"/>
+                                                    <exclude reference="276"/>
+                                                    <exclude reference="277"/>
+                                                    <exclude reference="278"/>
+                                                    <exclude reference="289"/>
+                                                    <exclude reference="290"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="275"/>
+                                                    <include reference="276"/>
+                                                    <include reference="277"/>
+                                                    <include reference="278"/>
+                                                    <include reference="289"/>
+                                                    <include reference="290"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="NameLabel" destination="234" id="name-outlet-234"/>
+                                            <outlet property="AddressLabel" destination="231" id="name-outlet-231"/>
+                                            <outlet property="PostalCodeLabel" destination="237" id="name-outlet-237"/>
+                                            <outlet property="DistanceLabel" destination="240" id="name-outlet-240"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint id="134" firstItem="48" firstAttribute="centerX" secondItem="133" secondAttribute="centerX"/>
+                            <constraint id="135" firstItem="133" firstAttribute="top" secondItem="44" secondAttribute="bottom" constant="29"/>
+                            <constraint id="137" firstItem="136" firstAttribute="top" secondItem="133" secondAttribute="bottom" constant="42">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint id="138" firstItem="136" firstAttribute="centerX" secondItem="48" secondAttribute="centerX"/>
+                            <constraint id="141" firstItem="140" firstAttribute="top" secondItem="136" secondAttribute="bottom" constant="49">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint id="142" firstItem="140" firstAttribute="centerX" secondItem="48" secondAttribute="centerX"/>
+                            <constraint id="146" firstItem="143" firstAttribute="leading" secondItem="48" secondAttribute="leading"/>
+                            <constraint id="147" firstItem="143" firstAttribute="top" secondItem="140" secondAttribute="bottom" constant="30"/>
+                            <constraint id="148" firstItem="48" firstAttribute="trailing" secondItem="143" secondAttribute="trailing"/>
+                            <constraint id="149" firstItem="45" firstAttribute="top" secondItem="143" secondAttribute="bottom"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LoadButton" destination="133" id="name-outlet-133"/>
+                        <outlet property="FilterTextField" destination="136" id="name-outlet-136"/>
+                        <outlet property="LoadMapButton" destination="140" id="name-outlet-140"/>
+                        <outlet property="WifiHotspotsTable" destination="143" id="name-outlet-143"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="49" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="705" y="-7"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina47"/>
+    </simulatedMetricsContainer>
+</document>
