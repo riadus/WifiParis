@@ -49,6 +49,29 @@ namespace WifiParisComplete.Droid
 			global::MvvmCross.Binding.Droid.Resource.Styleable.MvxListView_MvxItemTemplate = global::WifiParisComplete.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.ApplicationName = global::WifiParisComplete.Droid.Resource.String.ApplicationName;
 			global::SQLite.Net.Platform.XamarinAndroid.Resource.String.Hello = global::WifiParisComplete.Droid.Resource.String.Hello;
+			global::MvvmCross.Droid.Support.Core.UI.Resource.String.library_name = global::WifiParisComplete.Droid.Resource.String.library_name;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxBind = global::WifiParisComplete.Droid.Resource.Attribute.MvxBind;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxDropDownItemTemplate = global::WifiParisComplete.Droid.Resource.Attribute.MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxGroupItemTemplate = global::WifiParisComplete.Droid.Resource.Attribute.MvxGroupItemTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxItemTemplate = global::WifiParisComplete.Droid.Resource.Attribute.MvxItemTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxLang = global::WifiParisComplete.Droid.Resource.Attribute.MvxLang;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxSource = global::WifiParisComplete.Droid.Resource.Attribute.MvxSource;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Attribute.MvxTemplate = global::WifiParisComplete.Droid.Resource.Attribute.MvxTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Id.MvvmCrossTagId = global::WifiParisComplete.Droid.Resource.Id.MvvmCrossTagId;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Id.MvxBindingTagUnique = global::WifiParisComplete.Droid.Resource.Id.MvxBindingTagUnique;
+			global::MvvmCross.Droid.Support.Fragment.Resource.String.library_name = global::WifiParisComplete.Droid.Resource.String.library_name;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxBinding = global::WifiParisComplete.Droid.Resource.Styleable.MvxBinding;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxBinding_MvxBind = global::WifiParisComplete.Droid.Resource.Styleable.MvxBinding_MvxBind;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxBinding_MvxLang = global::WifiParisComplete.Droid.Resource.Styleable.MvxBinding_MvxLang;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxControl = global::WifiParisComplete.Droid.Resource.Styleable.MvxControl;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxControl_MvxTemplate = global::WifiParisComplete.Droid.Resource.Styleable.MvxControl_MvxTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxExpandableListView = global::WifiParisComplete.Droid.Resource.Styleable.MvxExpandableListView;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate = global::WifiParisComplete.Droid.Resource.Styleable.MvxExpandableListView_MvxGroupItemTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxImageView = global::WifiParisComplete.Droid.Resource.Styleable.MvxImageView;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxImageView_MvxSource = global::WifiParisComplete.Droid.Resource.Styleable.MvxImageView_MvxSource;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxListView = global::WifiParisComplete.Droid.Resource.Styleable.MvxListView;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxListView_MvxDropDownItemTemplate = global::WifiParisComplete.Droid.Resource.Styleable.MvxListView_MvxDropDownItemTemplate;
+			global::MvvmCross.Droid.Support.Fragment.Resource.Styleable.MvxListView_MvxItemTemplate = global::WifiParisComplete.Droid.Resource.Styleable.MvxListView_MvxItemTemplate;
 		}
 		
 		public partial class Attribute
@@ -309,8 +332,8 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f080008
 			public const int adjust_width = 2131230728;
 			
-			// aapt resource value: 0x7f080016
-			public const int adressTextView = 2131230742;
+			// aapt resource value: 0x7f080017
+			public const int adressTextView = 2131230743;
 			
 			// aapt resource value: 0x7f08000c
 			public const int auto = 2131230732;
@@ -318,8 +341,8 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f08000d
 			public const int dark = 2131230733;
 			
-			// aapt resource value: 0x7f080015
-			public const int distanceTextView = 2131230741;
+			// aapt resource value: 0x7f080016
+			public const int distanceTextView = 2131230742;
 			
 			// aapt resource value: 0x7f080011
 			public const int filterEditText = 2131230737;
@@ -327,8 +350,8 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f08000f
 			public const int hostpotsMap = 2131230735;
 			
-			// aapt resource value: 0x7f080013
-			public const int hotspotList = 2131230739;
+			// aapt resource value: 0x7f080014
+			public const int hotspotList = 2131230740;
 			
 			// aapt resource value: 0x7f080002
 			public const int hybrid = 2131230722;
@@ -345,11 +368,11 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f080010
 			public const int loadWifiHotspotsButton = 2131230736;
 			
-			// aapt resource value: 0x7f080018
-			public const int myButton = 2131230744;
+			// aapt resource value: 0x7f080019
+			public const int myButton = 2131230745;
 			
-			// aapt resource value: 0x7f080014
-			public const int nameTextView = 2131230740;
+			// aapt resource value: 0x7f080015
+			public const int nameTextView = 2131230741;
 			
 			// aapt resource value: 0x7f080003
 			public const int none = 2131230723;
@@ -357,8 +380,11 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f080004
 			public const int normal = 2131230724;
 			
-			// aapt resource value: 0x7f080017
-			public const int postalCodeTextView = 2131230743;
+			// aapt resource value: 0x7f080018
+			public const int postalCodeTextView = 2131230744;
+			
+			// aapt resource value: 0x7f080013
+			public const int refresher = 2131230739;
 			
 			// aapt resource value: 0x7f080005
 			public const int satellite = 2131230725;
@@ -445,14 +471,14 @@ namespace WifiParisComplete.Droid
 		public partial class String
 		{
 			
+			// aapt resource value: 0x7f060013
+			public const int ApplicationName = 2131099667;
+			
 			// aapt resource value: 0x7f060012
-			public const int ApplicationName = 2131099666;
+			public const int Hello = 2131099666;
 			
-			// aapt resource value: 0x7f060011
-			public const int Hello = 2131099665;
-			
-			// aapt resource value: 0x7f060014
-			public const int app_name = 2131099668;
+			// aapt resource value: 0x7f060015
+			public const int app_name = 2131099669;
 			
 			// aapt resource value: 0x7f060000
 			public const int common_google_play_services_enable_button = 2131099648;
@@ -505,8 +531,11 @@ namespace WifiParisComplete.Droid
 			// aapt resource value: 0x7f06000f
 			public const int common_signin_button_text_long = 2131099663;
 			
-			// aapt resource value: 0x7f060013
-			public const int hello = 2131099667;
+			// aapt resource value: 0x7f060014
+			public const int hello = 2131099668;
+			
+			// aapt resource value: 0x7f060011
+			public const int library_name = 2131099665;
 			
 			static String()
 			{

@@ -121,6 +121,18 @@
     <Reference Include="Xamarin.GooglePlayServices.Maps">
       <HintPath>..\packages\Xamarin.GooglePlayServices.Maps.42.1021.1\lib\MonoAndroid70\Xamarin.GooglePlayServices.Maps.dll</HintPath>
     </Reference>
+    <Reference Include="MvvmCross.Droid.Shared">
+      <HintPath>..\packages\MvvmCross.Droid.Shared.4.4.0\lib\MonoAndroid\MvvmCross.Droid.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.Core.UI">
+      <HintPath>..\packages\MvvmCross.Droid.Support.Core.UI.4.4.0\lib\MonoAndroid70\MvvmCross.Droid.Support.Core.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.Core.Utils">
+      <HintPath>..\packages\MvvmCross.Droid.Support.Core.Utils.4.4.1\lib\MonoAndroid70\MvvmCross.Droid.Support.Core.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Droid.Support.Fragment">
+      <HintPath>..\packages\MvvmCross.Droid.Support.Fragment.4.4.0\lib\MonoAndroid70\MvvmCross.Droid.Support.Fragment.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />

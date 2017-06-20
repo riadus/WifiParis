@@ -28,11 +28,17 @@
         android:layout_alignParentRight="true"
         android:layout_below="@id/filterEditText"
         local:MvxBind="Text LoadMapButtonText; Click LoadMapCommand" />
-    <Mvx.MvxListView
-        android:id="@+id/hotspotList"
+    <MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout
+        android:id="@+id/refresher"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/loadMapButton"
-        local:MvxItemTemplate="@layout/hotspotwifi_item"
-        local:MvxBind="ItemsSource WifiHotspotsList" />
+        local:MvxBind="Refreshing IsBusy; RefreshCommand LoadMoreWifiHotspotsCommand">
+        <Mvx.MvxListView
+            android:id="@+id/hotspotList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            local:MvxItemTemplate="@layout/hotspotwifi_item"
+            local:MvxBind="ItemsSource WifiHotspotsList" />
+    </MvvmCross.Droid.Support.V4.MvxSwipeRefreshLayout>
 </RelativeLayout>
