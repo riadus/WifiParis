@@ -131,6 +131,7 @@
     <Compile Include="Activities\WifiHotspotsActivity.cs" />
     <Compile Include="Activities\HotspotsMapActivity.cs" />
     <Compile Include="IoC\MessageHandlerProviderDroid.cs" />
+    <Compile Include="Converters\BusyToBackgroudColorValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -172,6 +173,7 @@
   <ItemGroup>
     <Folder Include="IoC\" />
     <Folder Include="Activities\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.targets" Condition="Exists('..\packages\Xamarin.Build.Download.0.4.2\build\Xamarin.Build.Download.targets')" />

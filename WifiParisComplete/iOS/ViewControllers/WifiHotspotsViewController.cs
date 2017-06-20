@@ -40,13 +40,19 @@ namespace WifiParisComplete.iOS
             bindingSet.Bind (View)
                       .For (v => v.BackgroundColor)
                       .To (vm => vm.IsBusy)
-                      .WithConversion (new BusyToBackgroundColorConverter());
+                      .WithConversion (new BusyToBackgroundColorConverter ());
             var source = new MvxSimpleTableViewSource (WifiTableView, WifiItemViewCell.Key, WifiItemViewCell.Key);
             WifiTableView.Source = source;
             WifiTableView.RowHeight = 100;
             bindingSet.Bind (source)
                       .To (vm => vm.WifiHotspotsList);
-            
+
+            var refreshControl = new MvxUIRefreshControl ();
+            WifiTableView.RefreshControl = refreshControl;
+
+            bindingSet.Bind (refreshControl).For (r => r.IsRefreshing).To (vm => vm.IsBusy);
+            bindingSet.Bind (refreshControl).For (r => r.RefreshCommand).To (vm => vm.LoadMoreWifiHotspotsCommand);
+
             bindingSet.Apply ();
 
             WifiTableView.ReloadData ();
