@@ -12,7 +12,7 @@ using WifiParisMVCComplete.Setup;
 
 namespace WifiParisMVCComplete.Droid
 {
-    [Activity (Label = "HotspotsWifiActiviry")]
+    [Activity (Label = "Rechercher des bornes")]
     public class HotspotsWifiActivity : Activity
     {
         private IUnitOfWork UnitOfWork { get; }

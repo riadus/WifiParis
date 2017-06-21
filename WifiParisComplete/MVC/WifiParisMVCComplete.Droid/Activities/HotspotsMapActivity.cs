@@ -13,7 +13,7 @@ using WifiParisMVCComplete.Setup;
 
 namespace WifiParisMVCComplete.Droid
 {
-    [Activity (Label = "HotspotsMapActivity")]
+    [Activity (Label = "Carte")]
     public class HotspotsMapActivity : Activity, IOnMapReadyCallback, ILocationListener
     {
         private IUnitOfWork UnitOfWork { get; }
