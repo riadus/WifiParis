@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
 using WifiParisComplete.Domain;
+using WifiParisComplete.Domain.Attributes;
 
 namespace WifiParisMVCComplete.iOS
 {
+    [RegisterInterfaceAsDynamic]
     public class FilePathProviderIOS : IFilePathProvider
     {
         public string DatabasePath {

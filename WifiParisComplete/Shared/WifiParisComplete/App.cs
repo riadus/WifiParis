@@ -37,6 +37,7 @@ namespace WifiParisComplete
 
             creatableTypes.WithAttribute<RegisterInterfaceAsDynamicAttribute> ().AsInterfaces ().RegisterAsDynamic ();
             creatableTypes.WithAttribute<RegisterInterfaceAsLazySingletonAttribute> ().AsInterfaces ().RegisterAsLazySingleton ();
+            assembly.ExceptionSafeGetTypes
         }
     }
 }

@@ -81,6 +81,10 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.4.6.0\lib\netstandard1.1\Autofac.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
@@ -98,6 +102,7 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -120,6 +125,11 @@
     </Compile>
     <Compile Include="IoC\FilePathProviderIOS.cs" />
     <Compile Include="IoC\MessageHandlerProviderIOS.cs" />
+    <Compile Include="WifiHotspotViewSource.cs" />
+    <Compile Include="HotspotsMapViewController.cs" />
+    <Compile Include="HotspotsMapViewController.designer.cs">
+      <DependentUpon>HotspotsMapViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
@@ -135,5 +145,6 @@
       <Name>WifiParisComplete.SQLite</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="WifiParisMVCComplete.Setup\WifiParisMVCComplete.Setup.projitems" Label="Shared" Condition="Exists('WifiParisMVCComplete.Setup\WifiParisMVCComplete.Setup.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

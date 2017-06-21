@@ -1,13 +1,11 @@
-using Foundation;
 using System;
-using UIKit;
 using System.Collections.Generic;
-using WifiParisComplete.Data;
 using System.Linq;
+using Autofac;
+using UIKit;
+using WifiParisComplete.Data;
 using WifiParisComplete.Domain.Interfaces;
-using WifiParisComplete.Domain.Services;
-using WifiParisMVCComplete.iOS;
-using WifiParisComplete.Domain;
+using WifiParisMVCComplete.Setup;
 
 namespace WifiParisMVCComplete.iOS
 {
@@ -18,7 +16,7 @@ namespace WifiParisMVCComplete.iOS
         IEnumerable<WifiHotspot> _wifiHotspots;
         public WifiHotspotsViewController (IntPtr handle) : base (handle)
         {
-            _backendService = new BackendService (new ApiClient (new MessageHandlerProviderIOS ()), new WifiHotspotMapper (new AddressMapper ()));
+            _backendService = AppContainer.Container.Resolve<IBackendService> (); 
             _wifiHotspots = new List<WifiHotspot> ();
         }
 
@@ -49,27 +47,14 @@ namespace WifiParisMVCComplete.iOS
         {
             LoadMapButton.Enabled = _wifiHotspots.Count() > 0;
         }
-    }
 
-    public class WifiHotspotViewSource : UITableViewSource
-    {
-        private List<WifiHotspot> _data;
-        public void SetSource (IEnumerable<WifiHotspot> data)
+        public override void PrepareForSegue (UIStoryboardSegue segue, Foundation.NSObject sender)
         {
-            _data = data.ToList ();
-        }
-
-        public override UITableViewCell GetCell (UITableView tableView, NSIndexPath indexPath)
-        {
-            var cellTemp = tableView.DequeueReusableCell ("Cell_Id");
-            var cell = (WifiHotspotCell)cellTemp;
-            cell.UpdateData (_data [indexPath.Row]);
-            return cell;
-        }
-
-        public override nint RowsInSection (UITableView tableview, nint section)
-        {
-            return _data?.Count () ?? 0;
+            base.PrepareForSegue (segue, sender);
+            if (segue.Identifier == "CellSegue") {
+                var destinationViewControler = segue.DestinationViewController as HotspotsMapViewController;
+                destinationViewControler.WifiHotspot = ((WifiHotspotCell)sender).Model;
+            }
         }
     }
 }
