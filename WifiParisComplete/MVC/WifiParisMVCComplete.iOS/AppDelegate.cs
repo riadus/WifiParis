@@ -1,10 +1,5 @@
-﻿using Autofac;
-using Foundation;
-using SQLite.Net.Platform.XamarinIOS;
+﻿using Foundation;
 using UIKit;
-using WifiParisComplete.Domain;
-using WifiParisComplete.SqLite;
-using WifiParisMVCComplete.Setup;
 
 namespace WifiParisMVCComplete.iOS
 {
@@ -24,16 +19,10 @@ namespace WifiParisMVCComplete.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-            SetupDatabase ();
+            Setup.AppSetup.SetupDatabase ();
             return true;
         }
 
-        public void SetupDatabase ()
-        {
-            var pathProvider = AppContainer.Container.Resolve<IFilePathProvider> ();
-            var path = pathProvider.DatabasePath;
-            SQLiteDatabase.FilePath = path;
-            SQLiteDatabase.Initialize (new SQLitePlatformIOS ());
-        }
+
     }
 }

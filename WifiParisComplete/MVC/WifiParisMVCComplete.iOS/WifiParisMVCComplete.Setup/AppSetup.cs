@@ -1,11 +1,17 @@
 ﻿using System.Reflection;
 using Autofac;
+#if __IOS__
+using SQLite.Net.Platform.XamarinIOS;
+#endif
+#if __ANDROID__
+using SQLite.Net.Platform.XamarinAndroid;
+#endif
 using WifiParisComplete.Domain;
 using WifiParisComplete.SqLite;
 
 namespace WifiParisMVCComplete.Setup
 {
-    public class Setup
+    public class AppSetup
     {
         public IContainer CreateContainer ()
         {
@@ -20,6 +26,19 @@ namespace WifiParisMVCComplete.Setup
             containerBuilder.RegisterServicesForAssembly (GetType ().GetTypeInfo ().Assembly);
             containerBuilder.RegisterServicesForAssembly (typeof (SQLiteReferenceAssembly).GetTypeInfo ().Assembly);
         }
+
+        public static void SetupDatabase ()
+        {
+            var pathProvider = AppContainer.Container.Resolve<IFilePathProvider> ();
+            var path = pathProvider.DatabasePath;
+            SQLiteDatabase.FilePath = path;
+#if __ANDROID__
+            SQLiteDatabase.Initialize (new SQLitePlatformAndroid ());
+#endif
+#if __IOS__
+            SQLiteDatabase.Initialize (new SQLitePlatformIOS ());
+#endif
+        }
     }
 
     public static class AppContainer
@@ -28,7 +47,7 @@ namespace WifiParisMVCComplete.Setup
 
         public static IContainer Container {
             get {
-                return _container ?? (_container = new Setup().CreateContainer());
+                return _container ?? (_container = new AppSetup().CreateContainer());
             }
         }
     }
