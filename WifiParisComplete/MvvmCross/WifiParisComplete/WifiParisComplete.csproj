@@ -61,15 +61,15 @@
     <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
-      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
-      <Name>WifiParisComplete.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
+    <ProjectReference Include="..\..\Shared\WifiParisComplete.Domain\WifiParisComplete.Domain.csproj">
       <Project>{9619B956-4A2E-4C64-A387-D7944370AD8A}</Project>
       <Name>WifiParisComplete.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj">
+    <ProjectReference Include="..\..\Shared\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\WifiParisComplete.SQLite\WifiParisComplete.SQLite.csproj">
       <Project>{D6AA1A6D-3285-4FD4-9E86-075922416E93}</Project>
       <Name>WifiParisComplete.SQLite</Name>
     </ProjectReference>

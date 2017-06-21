@@ -11,12 +11,15 @@ namespace WifiParisMVCComplete.iOS
 {
     public partial class WifiHotspotsViewController : UIViewController
     {
-        IBackendService _backendService;
-        WifiHotspotViewSource _source;
-        IEnumerable<WifiHotspot> _wifiHotspots;
+        private readonly IBackendService _backendService;
+        private readonly IUnitOfWork _unitOfWork;
+        private WifiHotspotViewSource _source;
+        private IEnumerable<WifiHotspot> _wifiHotspots;
+
         public WifiHotspotsViewController (IntPtr handle) : base (handle)
         {
-            _backendService = AppContainer.Container.Resolve<IBackendService> (); 
+            _backendService = AppContainer.Container.Resolve<IBackendService> ();
+            _unitOfWork = AppContainer.Container.Resolve<IUnitOfWork> ();
             _wifiHotspots = new List<WifiHotspot> ();
         }
 
@@ -45,8 +48,10 @@ namespace WifiParisMVCComplete.iOS
 
         void UpdateUI ()
         {
-            LoadMapButton.Enabled = _wifiHotspots.Count() > 0;
+            LoadMapButton.Enabled = CanLoadMapForAll;
         }
+
+        private bool CanLoadMapForAll => _wifiHotspots.Count () > 0;
 
         public override void PrepareForSegue (UIStoryboardSegue segue, Foundation.NSObject sender)
         {
@@ -55,6 +60,18 @@ namespace WifiParisMVCComplete.iOS
                 var destinationViewControler = segue.DestinationViewController as HotspotsMapViewController;
                 destinationViewControler.WifiHotspot = ((WifiHotspotCell)sender).Model;
             }
+            if (segue.Identifier == "LoadMapSegue") {
+                _unitOfWork.DeleteAllWifiHotspots ();
+                _unitOfWork.SaveWifiHotspots (_wifiHotspots);
+            }
+        }
+
+        public override bool ShouldPerformSegue (string segueIdentifier, Foundation.NSObject sender)
+        {
+            if (segueIdentifier == "LoadMapSegue") {
+                return CanLoadMapForAll;
+            }
+            return base.ShouldPerformSegue (segueIdentifier, sender);
         }
     }
 }

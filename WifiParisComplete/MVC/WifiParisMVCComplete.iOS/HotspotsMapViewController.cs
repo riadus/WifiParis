@@ -1,21 +1,23 @@
-using Foundation;
 using System;
-using UIKit;
-using WifiParisComplete.Data;
+using System.Collections.Generic;
+using System.Linq;
+using Autofac;
 using CoreLocation;
 using MapKit;
-using System.Linq;
-using System.Collections.Generic;
+using UIKit;
+using WifiParisComplete.Data;
+using WifiParisMVCComplete.Setup;
 
 namespace WifiParisMVCComplete.iOS
 {
     public partial class HotspotsMapViewController : UIViewController
     {
-        private List<WifiHotspot> _wifiHotspots;
-
+        private IEnumerable<WifiHotspot> _wifiHotspots;
+        private IEnumerable<WifiHotspot> ValidWifiHotspots => _wifiHotspots.Where (x => x.Coordinates != null && x.Coordinates.Latitude > 0 && x.Coordinates.Longitude > 0);
+        private IUnitOfWork _unitOfWork;
         public HotspotsMapViewController (IntPtr handle) : base (handle)
         {
-            
+            _unitOfWork = AppContainer.Container.Resolve<IUnitOfWork> ();
         }
 
         public WifiHotspot WifiHotspot { get; set; }
@@ -23,7 +25,17 @@ namespace WifiParisMVCComplete.iOS
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
-            SetupAnnotation (WifiHotspot);
+            Initialize ();
+        }
+
+        private void Initialize ()
+        {
+            if (WifiHotspot == null) {
+                _wifiHotspots = _unitOfWork.GetAllWifiHotspots ().ToList();
+                SetupAnnotations ();
+            } else {
+                SetupAnnotation (WifiHotspot);
+            }
         }
 
         private void SetupMap (CLLocationCoordinate2D coords)
@@ -58,22 +70,18 @@ namespace WifiParisMVCComplete.iOS
             var annotation = new WifiHotspotMapAnnotation (coords,
                                                            wifiHotspot.Name,
                                                            wifiHotspot.Address.Street);
-            SetupMap (coords);
+            if (!MapView.Annotations.Any ()) {
+                    SetupMap (coords);
+                }
             MapView.AddAnnotation (annotation);
         }
 
         private void SetupAnnotations ()
         {
-            foreach (var wifiHotspot in ViewModel.ValidHotspots) {
+            foreach (var wifiHotspot in ValidWifiHotspots) {
 
-                var coords = new CLLocationCoordinate2D (wifiHotspot.Coordinates.Latitude, wifiHotspot.Coordinates.Longitude);
-                var annotation = new WifiHotspotMapAnnotation (coords,
-                                                               wifiHotspot.Name,
-                                                               wifiHotspot.Address.Street);
-                if (!MapView.Annotations.Any ()) {
-                    SetupMap (coords);
-                }
-                MapView.AddAnnotation (annotation    }
+                SetupAnnotation (wifiHotspot);
+            }
         }
 
         class WifiHotspotMapAnnotation : MKAnnotation
