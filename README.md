@@ -4,7 +4,7 @@ This repository is meant for training.
 Here is shown two different approachs of app development with Xamarin.
 The native MVC (or MVP ?) and the MVVM way using MVVM Cross.
 
-#WifiParis
+# WifiParis
 Applications iOS et Android qui consomment des données de Paris Open Data et affichent les différentes bornes Wifi disponibles à Paris.
 Ce repository est utilisé pour des formations.
 Il y est présenté deux approches différentes du développement mobiles avec Xamarin.
