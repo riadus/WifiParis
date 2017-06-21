@@ -24,6 +24,8 @@ namespace WifiParisMVCComplete.iOS
             base.LayoutSubviews ();
             AddressLabel.LineBreakMode = UILineBreakMode.WordWrap;
             AddressLabel.Lines = 0;
+
+            NameLabel.AdjustsFontSizeToFitWidth = true;
         }
     }
 }
