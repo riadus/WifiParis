@@ -13,5 +13,10 @@ namespace WifiParis.Setup
 				return _container ?? (_container = new AppSetup().CreateContainer());
 			}
 		}
+
+        public static void Init()
+        {
+            var x = Container;
+        }
 	}
 }

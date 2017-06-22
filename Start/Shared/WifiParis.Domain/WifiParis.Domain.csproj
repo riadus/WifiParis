@@ -53,19 +53,21 @@
     <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WifiParis.Data.csproj">
-      <Project>{567C06DE-B444-4247-8B9E-F1373EE88AE7}</Project>
-      <Name>WifiParis.Data</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Content\Data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WifiParis.Data\WifiParis.Data.csproj">
+      <Project>{567C06DE-B444-4247-8B9E-F1373EE88AE7}</Project>
+      <Name>WifiParis.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Data.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

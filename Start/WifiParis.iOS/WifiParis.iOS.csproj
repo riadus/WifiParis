@@ -114,15 +114,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WifiParis.Data\WifiParis.Data.csproj">
+    <ProjectReference Include="..\Shared\WifiParis.Data\WifiParis.Data.csproj">
       <Project>{567C06DE-B444-4247-8B9E-F1373EE88AE7}</Project>
       <Name>WifiParis.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WifiParis.Data\WifiParis.Domain\WifiParis.Domain.csproj">
+    <ProjectReference Include="..\Shared\WifiParis.Domain\WifiParis.Domain.csproj">
       <Project>{92B40525-0355-4F19-972F-BD99C1308405}</Project>
       <Name>WifiParis.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WifiParis.Data\WifiParis.Sqlite\WifiParis.Sqlite.csproj">
+    <ProjectReference Include="..\Shared\WifiParis.Sqlite\WifiParis.Sqlite.csproj">
       <Project>{01092F86-AF58-4D07-9448-DCB024512EFF}</Project>
       <Name>WifiParis.Sqlite</Name>
     </ProjectReference>

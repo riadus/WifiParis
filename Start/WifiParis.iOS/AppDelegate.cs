@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using UIKit;
+using WifiParis.Setup;
 
 namespace WifiParis.iOS
 {
@@ -20,7 +21,7 @@ namespace WifiParis.iOS
         {
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
-
+            AppContainer.Init();
             return true;
         }
 

@@ -29,7 +29,7 @@ namespace WifiParis.Domain
         {
 			await Task.Delay(1000).ConfigureAwait(false);
 			await LoadData();
-			var list = Data.Where(x => x.Address.PostalCode == postalCodeFilter && x.Id > _lastId).Take(10);
+            var list = Data.Where(x => x.Address.PostalCode == postalCodeFilter).Skip(_lastId).Take(10);
 			
             _lastId += list.Count();
 			return list;
@@ -39,7 +39,7 @@ namespace WifiParis.Domain
         {
             await Task.Delay (1000).ConfigureAwait (false);
 			await LoadData();
-			var list = Data.Where(x => x.Address.PostalCode == postalCodeFilter).Take(10);
+			var list = Data.Where(x => postalCodeFilter == "" || x.Address.PostalCode == postalCodeFilter).Take(10);
 			_lastId = list.Count();
             return list;
 		}
