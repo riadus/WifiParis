@@ -5,7 +5,7 @@ using WifiParisComplete.ViewModels;
 
 namespace WifiParisComplete.Droid
 {
-    [Activity (Label = "WifiHotspotsActivity")]
+    [Activity (Label = "Rechercher des bornes")]
     public class WifiHotspotsActivity : MvxActivity<WifiHotspotsViewModel>
     {
         protected override void OnViewModelSet ()

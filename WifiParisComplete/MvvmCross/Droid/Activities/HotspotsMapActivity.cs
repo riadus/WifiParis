@@ -1,24 +1,18 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Android.App;
-using Android.Content;
 using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using Android.Locations;
 using Android.OS;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using MvvmCross.Droid.Views;
 using WifiParisComplete.ViewModels;
 
 namespace WifiParisComplete.Droid
 {
-    [Activity (Label = "HotspotsMapActivity")]
+    [Activity (Label = "Carte")]
     public class HotspotsMapActivity : MvxActivity<HotspotsMapViewModel>, IOnMapReadyCallback, ILocationListener
     {
         private GoogleMap _googleMap;

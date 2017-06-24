@@ -4,7 +4,7 @@ using Android.OS;
 
 namespace WifiParisMVCComplete.Droid.Activities
 {
-    [Activity(Label = "WifiParisMVCComplete.Droid", MainLauncher = true, Icon = "@mipmap/icon")]
+    [Activity(MainLauncher = true, Icon = "@mipmap/icon")]
     public class MainActivity : Activity
     {
         private Button _button;
