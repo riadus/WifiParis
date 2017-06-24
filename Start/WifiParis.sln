@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParis.Domain", "Shared\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParis.Sqlite", "Shared\WifiParis.Sqlite\WifiParis.Sqlite.csproj", "{01092F86-AF58-4D07-9448-DCB024512EFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WifiParis.Droid", "WifiParis.Droid\WifiParis.Droid.csproj", "{CEAFBFD6-73E3-4FD7-B150-276735647C86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -53,6 +55,14 @@ Global
 		{01092F86-AF58-4D07-9448-DCB024512EFF}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{01092F86-AF58-4D07-9448-DCB024512EFF}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{01092F86-AF58-4D07-9448-DCB024512EFF}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Release|iPhone.Build.0 = Release|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{CEAFBFD6-73E3-4FD7-B150-276735647C86}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{567C06DE-B444-4247-8B9E-F1373EE88AE7} = {43878B49-1440-4011-9C15-B6695570B4BD}
