@@ -3,14 +3,12 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
     <HasSharedItems>true</HasSharedItems>
-    <SharedGUID>{E460BE52-584A-4242-A595-9B532EC87A60}</SharedGUID>
+    <SharedGUID>{0E2DD27E-0C25-49F6-9F62-6FEA0F40CE6F}</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>WifiParisMVCComplete.Setup</Import_RootNamespace>
+    <Import_RootNamespace>WifiParisComplete.XF.Setup</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)AppSetup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Extensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ContainerBuilderExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Setup.cs" />
   </ItemGroup>
 </Project>
