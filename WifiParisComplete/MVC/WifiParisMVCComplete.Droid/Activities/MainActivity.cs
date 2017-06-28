@@ -12,7 +12,6 @@ namespace WifiParisMVCComplete.Droid.Activities
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            Setup.AppSetup.SetupDatabase ();
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 

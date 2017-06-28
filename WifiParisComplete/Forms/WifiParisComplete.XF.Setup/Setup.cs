@@ -25,21 +25,6 @@ namespace WifiParisComplete.XF.Setup
 			SimpleIoc.Default.Register<IFilePathProvider, FilePathProviderIOS>();
 			SimpleIoc.Default.Register<IMessageHandlerProvider, MessageHandlerProviderIOS>();
 #endif
-
-			SetupDatabase();
         }
-
-		private static void SetupDatabase()
-		{
-			var pathProvider = SimpleIoc.Default.GetInstance<IFilePathProvider>();
-			var path = pathProvider.DatabasePath;
-			SQLiteDatabase.FilePath = path;
-#if __ANDROID__
-            SQLiteDatabase.Initialize (new SQLitePlatformAndroid ());
-#endif
-#if __IOS__
-			SQLiteDatabase.Initialize(new SQLitePlatformIOS());
-#endif
-		}
     }
 }

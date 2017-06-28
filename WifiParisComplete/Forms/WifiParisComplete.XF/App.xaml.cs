@@ -43,8 +43,7 @@ namespace WifiParisComplete.XF
         {
             SimpleIoc.Default.Register(() => MainPage.Navigation);
 			SimpleIoc.Default.Register<INavigationService, NavigationService>();
-			SimpleIoc.Default.Register<IBackendService, BackendService>();
-			SimpleIoc.Default.Register<IApiClient, ApiClient>();
+			SimpleIoc.Default.Register<IBackendService, MockBackendService>();
 			SimpleIoc.Default.Register<IMapper<Fields, Address>, AddressMapper>();
 			SimpleIoc.Default.Register<IMapper<Record, WifiHotspot>, WifiHotspotMapper>();
 			SimpleIoc.Default.Register<IUnitOfWork, UnitOfWork>();

@@ -1,31 +1,29 @@
 ﻿using System.Collections.Generic;
-using SQLite.Net;
-using SQLiteNetExtensions.Extensions;
 using WifiParisComplete.Data;
 
 namespace WifiParisComplete.SqLite
 {
-    public class Repository<T> : IRepository<T> where T : SavableData, new()
+    public class Repository<T> : IRepository<T> where T : new()
     {
-        protected readonly SQLiteConnection _connection;
-
-        public Repository (SQLiteConnection connection)
+        List<T> InMemoryData { get; set; }
+        public Repository ()
         {
-            _connection = connection;
+            InMemoryData = new List<T> ();
         }
         public int DeleteAll ()
         {
-            return _connection.DeleteAll<T> ();
+            InMemoryData = new List<T> ();
+            return 1;
         }
 
         public IEnumerable<T> GetAll ()
         {
-            return _connection.GetAllWithChildren<T> ();
+            return InMemoryData;
         }
 
         public void Save (IEnumerable<T> items)
         {
-            _connection.InsertAll (items, true);
+            InMemoryData.InsertRange (InMemoryData.Count, items);
         }
     }
 }

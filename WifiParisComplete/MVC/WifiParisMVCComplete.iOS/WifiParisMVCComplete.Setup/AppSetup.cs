@@ -26,19 +26,6 @@ namespace WifiParisMVCComplete.Setup
             containerBuilder.RegisterServicesForAssembly (GetType ().GetTypeInfo ().Assembly);
             containerBuilder.RegisterServicesForAssembly (typeof (SQLiteReferenceAssembly).GetTypeInfo ().Assembly);
         }
-
-        public static void SetupDatabase ()
-        {
-            var pathProvider = AppContainer.Container.Resolve<IFilePathProvider> ();
-            var path = pathProvider.DatabasePath;
-            SQLiteDatabase.FilePath = path;
-#if __ANDROID__
-            SQLiteDatabase.Initialize (new SQLitePlatformAndroid ());
-#endif
-#if __IOS__
-            SQLiteDatabase.Initialize (new SQLitePlatformIOS ());
-#endif
-        }
     }
 
     public static class AppContainer

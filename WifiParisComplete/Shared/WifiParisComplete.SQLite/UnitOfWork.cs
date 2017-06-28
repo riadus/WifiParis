@@ -11,9 +11,9 @@ namespace WifiParisComplete.SqLite
     {
         public UnitOfWork ()
         {
-            AddressRepository = new Repository<Address> (SQLiteDatabase.GetConnection ());
-            CoordinatesRepository = new Repository<Coordinates> (SQLiteDatabase.GetConnection ());
-            WifiHotspotRepository = new Repository<WifiHotspot> (SQLiteDatabase.GetConnection ());
+            AddressRepository = new Repository<Address> ();
+            CoordinatesRepository = new Repository<Coordinates> ();
+            WifiHotspotRepository = new Repository<WifiHotspot> ();
         }
 
         public IRepository<Address> AddressRepository { get; }

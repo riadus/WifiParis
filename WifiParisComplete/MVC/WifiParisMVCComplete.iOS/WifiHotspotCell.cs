@@ -1,4 +1,5 @@
 using System;
+using Foundation;
 using UIKit;
 using WifiParisComplete.Data;
 
@@ -7,6 +8,10 @@ namespace WifiParisMVCComplete.iOS
     public partial class WifiHotspotCell : UITableViewCell
     {
         public WifiHotspotCell (IntPtr handle) : base (handle)
+        {
+        }
+
+        public WifiHotspotCell (NSString cellId) : base (UITableViewCellStyle.Default, cellId)
         {
         }
 
