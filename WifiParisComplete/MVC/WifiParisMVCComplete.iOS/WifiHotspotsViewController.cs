@@ -13,7 +13,6 @@ namespace WifiParisMVCComplete.iOS
     {
         private readonly IBackendService _backendService;
         private readonly IUnitOfWork _unitOfWork;
-        private WifiHotspotViewSource _source;
         private IEnumerable<WifiHotspot> _wifiHotspots;
 
         public WifiHotspotsViewController (IntPtr handle) : base (handle)
@@ -26,19 +25,7 @@ namespace WifiParisMVCComplete.iOS
         public override void ViewDidLoad ()
         {
             base.ViewDidLoad ();
-            _source = new WifiHotspotViewSource ();
-            WifiHotspotsTable.Source = _source;
             UpdateUI ();
-        }
-
-        async partial void LoadButton_TouchUpInside (UIButton sender)
-        {
-            SetBusiness (true);
-            _wifiHotspots = await _backendService.GetWifiHotspots (FilterTextField.Text).ConfigureAwait (true);
-            _source.SetSource (_wifiHotspots);
-            WifiHotspotsTable.ReloadData ();
-            UpdateUI ();
-            SetBusiness (false);
         }
 
         private void SetBusiness (bool isBusy)
@@ -52,19 +39,6 @@ namespace WifiParisMVCComplete.iOS
         }
 
         private bool CanLoadMapForAll => _wifiHotspots.Count () > 0;
-
-        public override void PrepareForSegue (UIStoryboardSegue segue, Foundation.NSObject sender)
-        {
-            base.PrepareForSegue (segue, sender);
-            if (segue.Identifier == "CellSegue") {
-                var destinationViewControler = segue.DestinationViewController as HotspotsMapViewController;
-                destinationViewControler.WifiHotspot = ((WifiHotspotCell)sender).Model;
-            }
-            if (segue.Identifier == "LoadMapSegue") {
-                _unitOfWork.DeleteAllWifiHotspots ();
-                _unitOfWork.SaveWifiHotspots (_wifiHotspots);
-            }
-        }
 
         public override bool ShouldPerformSegue (string segueIdentifier, Foundation.NSObject sender)
         {

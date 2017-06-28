@@ -26,14 +26,6 @@ namespace WifiParisMVCComplete.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton LoadMapButton { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITableView WifiHotspotsTable { get; set; }
-
-        [Action ("LoadButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void LoadButton_TouchUpInside (UIKit.UIButton sender);
-
         void ReleaseDesignerOutlets ()
         {
             if (FilterTextField != null) {
@@ -49,11 +41,6 @@ namespace WifiParisMVCComplete.iOS
             if (LoadMapButton != null) {
                 LoadMapButton.Dispose ();
                 LoadMapButton = null;
-            }
-
-            if (WifiHotspotsTable != null) {
-                WifiHotspotsTable.Dispose ();
-                WifiHotspotsTable = null;
             }
         }
     }

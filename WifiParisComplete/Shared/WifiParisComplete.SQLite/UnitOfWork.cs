@@ -4,44 +4,39 @@ using System.Linq;
 using WifiParisComplete.Data;
 using WifiParisComplete.Domain.Attributes;
 
-namespace WifiParisComplete.SqLite
+namespace WifiParisComplete.Sqlite
 {
-    [RegisterInterfaceAsLazySingleton]
-    public class UnitOfWork : IUnitOfWork
-    {
-        public UnitOfWork ()
-        {
-            AddressRepository = new Repository<Address> (SQLiteDatabase.GetConnection ());
-            CoordinatesRepository = new Repository<Coordinates> (SQLiteDatabase.GetConnection ());
-            WifiHotspotRepository = new Repository<WifiHotspot> (SQLiteDatabase.GetConnection ());
-        }
+	[RegisterInterfaceAsLazySingleton]
+	public class UnitOfWork : IUnitOfWork
+	{
+		public UnitOfWork ()
+		{
+			AddressRepository = new Repository<Address> ();
+			CoordinatesRepository = new Repository<Coordinates> ();
+			WifiHotspotRepository = new Repository<WifiHotspot> ();
+		}
 
-        public IRepository<Address> AddressRepository { get; }
-        public IRepository<Coordinates> CoordinatesRepository { get; }
-        public IRepository<WifiHotspot> WifiHotspotRepository { get; }
+		public IRepository<Address> AddressRepository { get; }
+		public IRepository<Coordinates> CoordinatesRepository { get; }
+		public IRepository<WifiHotspot> WifiHotspotRepository { get; }
 
-        public void SaveWifiHotspots  (IEnumerable<WifiHotspot> wifiHotspots)
-        {
-            WifiHotspotRepository.Save (wifiHotspots);
-            foreach (var wifiHotspot in wifiHotspots) {
-                wifiHotspot.Address.WifiHotspotId = wifiHotspot.Id;
-                wifiHotspot.Coordinates.WifiHotspotId = wifiHotspot.Id;
-            }
+		public void SaveWifiHotspots (IEnumerable<WifiHotspot> wifiHotspots)
+		{
+			WifiHotspotRepository.Save (wifiHotspots);
+			CoordinatesRepository.Save (wifiHotspots.Select (x => x.Coordinates));
+			AddressRepository.Save (wifiHotspots.Select (x => x.Address));
+		}
 
-            CoordinatesRepository.Save (wifiHotspots.Select (x => x.Coordinates));
-            AddressRepository.Save (wifiHotspots.Select (x => x.Address));
-        }
+		public void DeleteAllWifiHotspots ()
+		{
+			CoordinatesRepository.DeleteAll ();
+			AddressRepository.DeleteAll ();
+			WifiHotspotRepository.DeleteAll ();
+		}
 
-        public void DeleteAllWifiHotspots ()
-        {
-            CoordinatesRepository.DeleteAll ();
-            AddressRepository.DeleteAll ();
-            WifiHotspotRepository.DeleteAll ();
-        }
-
-        public IEnumerable<WifiHotspot> GetAllWifiHotspots ()
-        {
-            return WifiHotspotRepository.GetAll ();
-        }
-    }
+		public IEnumerable<WifiHotspot> GetAllWifiHotspots ()
+		{
+			return WifiHotspotRepository.GetAll ();
+		}
+	}
 }

@@ -261,23 +261,11 @@ namespace WifiParisMVCComplete.Droid
 			// aapt resource value: 0x7f080006
 			public const int adjust_width = 2131230726;
 			
-			// aapt resource value: 0x7f080014
-			public const int adressTextView = 2131230740;
-			
 			// aapt resource value: 0x7f08000a
 			public const int auto = 2131230730;
 			
 			// aapt resource value: 0x7f08000b
 			public const int dark = 2131230731;
-			
-			// aapt resource value: 0x7f080015
-			public const int distanceTextView = 2131230741;
-			
-			// aapt resource value: 0x7f08000d
-			public const int hostpotsMap = 2131230733;
-			
-			// aapt resource value: 0x7f080011
-			public const int hotspotList = 2131230737;
 			
 			// aapt resource value: 0x7f080000
 			public const int hybrid = 2131230720;
@@ -288,17 +276,14 @@ namespace WifiParisMVCComplete.Droid
 			// aapt resource value: 0x7f08000c
 			public const int light = 2131230732;
 			
-			// aapt resource value: 0x7f08000e
-			public const int loadHotspotsButton = 2131230734;
+			// aapt resource value: 0x7f08000d
+			public const int loadHotspotsButton = 2131230733;
+			
+			// aapt resource value: 0x7f08000f
+			public const int loadMapButton = 2131230735;
 			
 			// aapt resource value: 0x7f080010
-			public const int loadMapButton = 2131230736;
-			
-			// aapt resource value: 0x7f080012
-			public const int nameTextView = 2131230738;
-			
-			// aapt resource value: 0x7f080016
-			public const int navigationButton = 2131230742;
+			public const int navigationButton = 2131230736;
 			
 			// aapt resource value: 0x7f080001
 			public const int none = 2131230721;
@@ -306,11 +291,8 @@ namespace WifiParisMVCComplete.Droid
 			// aapt resource value: 0x7f080002
 			public const int normal = 2131230722;
 			
-			// aapt resource value: 0x7f08000f
-			public const int postalCodeFilter = 2131230735;
-			
-			// aapt resource value: 0x7f080013
-			public const int postalCodeTextView = 2131230739;
+			// aapt resource value: 0x7f08000e
+			public const int postalCodeFilter = 2131230734;
 			
 			// aapt resource value: 0x7f080003
 			public const int satellite = 2131230723;
@@ -354,16 +336,10 @@ namespace WifiParisMVCComplete.Droid
 		{
 			
 			// aapt resource value: 0x7f040000
-			public const int HotspotsMapView = 2130968576;
+			public const int HotspotsWifiView = 2130968576;
 			
 			// aapt resource value: 0x7f040001
-			public const int HotspotsWifiView = 2130968577;
-			
-			// aapt resource value: 0x7f040002
-			public const int HotspotWifiItem = 2130968578;
-			
-			// aapt resource value: 0x7f040003
-			public const int Main = 2130968579;
+			public const int Main = 2130968577;
 			
 			static Layout()
 			{

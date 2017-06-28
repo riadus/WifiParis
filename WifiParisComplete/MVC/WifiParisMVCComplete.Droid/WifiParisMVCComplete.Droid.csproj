@@ -93,9 +93,7 @@
     <Compile Include="Activities\HotspotsWifiActivity.cs" />
     <Compile Include="IoC\FilePathProviderDroid.cs" />
     <Compile Include="IoC\MessageHandlerProviderDroid.cs" />
-    <Compile Include="Activities\HotspotsAdapter.cs" />
     <Compile Include="Activities\JavaWrapperObject.cs" />
-    <Compile Include="Activities\HotspotsMapActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -112,8 +110,6 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\layout\HotspotsWifiView.axml" />
-    <AndroidResource Include="Resources\layout\HotspotWifiItem.axml" />
-    <AndroidResource Include="Resources\layout\HotspotsMapView.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

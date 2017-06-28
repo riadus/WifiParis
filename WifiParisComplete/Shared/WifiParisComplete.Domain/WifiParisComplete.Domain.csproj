@@ -55,6 +55,7 @@
     <Folder Include="Attributes\" />
     <Folder Include="API\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -63,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Content\Data.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">

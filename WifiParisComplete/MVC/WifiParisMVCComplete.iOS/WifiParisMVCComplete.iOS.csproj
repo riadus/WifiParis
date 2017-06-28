@@ -125,17 +125,8 @@
     <Compile Include="WifiHotspotsViewController.designer.cs">
       <DependentUpon>WifiHotspotsViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="WifiHotspotCell.cs" />
-    <Compile Include="WifiHotspotCell.designer.cs">
-      <DependentUpon>WifiHotspotCell.cs</DependentUpon>
-    </Compile>
     <Compile Include="IoC\FilePathProviderIOS.cs" />
     <Compile Include="IoC\MessageHandlerProviderIOS.cs" />
-    <Compile Include="WifiHotspotViewSource.cs" />
-    <Compile Include="HotspotsMapViewController.cs" />
-    <Compile Include="HotspotsMapViewController.designer.cs">
-      <DependentUpon>HotspotsMapViewController.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
