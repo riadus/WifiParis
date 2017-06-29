@@ -12,10 +12,5 @@ namespace WifiParisComplete.XF.Pages
             InitializeComponent();
             BindingContext = App.Locator.WifiHotspots;
         }
-
-        void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
-        {
-            Liste.SelectedItem = null;
-        }
     }
 }

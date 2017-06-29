@@ -13,7 +13,6 @@ namespace WifiParisComplete.XF.ViewModels
         }
 
 		public HomeViewModel Home => ServiceLocator.Current.GetInstance<HomeViewModel>();
-		public HotspotsMapViewModel HotspotsMap => ServiceLocator.Current.GetInstance<HotspotsMapViewModel>();
 		public WifiHotspotsViewModel WifiHotspots => ServiceLocator.Current.GetInstance<WifiHotspotsViewModel>();
     }
 }

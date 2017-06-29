@@ -21,15 +21,11 @@
             <Entry Grid.Row="1" Placeholder="{Binding FilterPlaceholder}" Text="{Binding Filter}" />
             <Button Grid.Row="2" Text="{Binding LoadMapButtonText}" Command="{Binding LoadMapCommand}" IsEnabled="{Binding IsLoadMapAvailable}" />
             <ListView Grid.Row="3" RowHeight="100" x:Name="Liste"
-                ItemsSource="{Binding WifiHotspotsList}" SelectedItem="{Binding SelectedHotspot}" ItemTapped="Handle_ItemTapped">
+                ItemsSource="{Binding }" SelectedItem="{Binding }" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid VerticalOptions="CenterAndExpand" Padding="20">
-                                <Label Grid.ColumnSpan="3" Text="{Binding Name}" HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap" />
-                                <Label Grid.Row="1" Grid.ColumnSpan="2" Text="{Binding Address}" HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap" />
-                                <Label Grid.Row="1" Grid.Column="2" Text="{Binding PostalCode}" HorizontalOptions="CenterAndExpand" LineBreakMode="WordWrap" />
-                            </Grid>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

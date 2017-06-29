@@ -35,42 +35,16 @@ namespace WifiParisComplete.XF.ViewModels
 
         private async Task LoadMoreWifiHotspots ()
         {
-            BusyCounter++;
-            if (_canLoadMore) {
-                var newHostpots = await BackendService.GetMoreWifiHotspots (Filter).ConfigureAwait (false);
-                _hotspots.AddRange (newHostpots);
-                foreach (var item in newHostpots.Select (item => new WifiHotspotItemViewModel (item))) {
-                    WifiHotspotsList.Add (item);
-                }
-            }
-            BusyCounter--;
+            
         }
 
         private async Task LoadWifiHotspots ()
         {
-            BusyCounter++;
-            UnitOfWork.DeleteAllWifiHotspots ();
-            _hotspots = (await BackendService.GetWifiHotspots (Filter).ConfigureAwait (false)).ToList();
-            WifiHotspotsList = new ObservableCollection<WifiHotspotItemViewModel>(_hotspots.Select (item => new WifiHotspotItemViewModel (item)));
-            _canLoadMore = true;
-            BusyCounter--;
+            
         }
 
         public string LoadMapButtonText { get; }
         public string LoadWifiHotspotsButtonText { get; }
-        ObservableCollection<WifiHotspotItemViewModel> _wifiHotspotsList;
-
-        public ObservableCollection<WifiHotspotItemViewModel> WifiHotspotsList {
-            get {
-                return _wifiHotspotsList;
-            }
-
-            set {
-                _wifiHotspotsList = value;
-                RaisePropertyChanged ();
-                RaisePropertyChanged (nameof (IsLoadMapAvailable));
-            }
-        }
 
         private string _filter;
         public string Filter {
@@ -91,26 +65,10 @@ namespace WifiParisComplete.XF.ViewModels
 
         private void LoadMap ()
         {
-            UnitOfWork.SaveWifiHotspots (_hotspots);
-            NavigationService.ShowMap ();
+            
         }
 
-        public bool IsLoadMapAvailable => WifiHotspotsList?.Count() > 0;
-        WifiHotspotItemViewModel _selectedHotspot;
+        public bool IsLoadMapAvailable => false;
 
-        public WifiHotspotItemViewModel SelectedHotspot
-        {
-            get
-            {
-                return _selectedHotspot;
-            }
-
-            set
-            {
-                _selectedHotspot = value;
-                if (SelectedHotspot != null)
-                    NavigationService.ShowMapFor(SelectedHotspot.WifiHotspot);
-            }
-        }
     }
 }
