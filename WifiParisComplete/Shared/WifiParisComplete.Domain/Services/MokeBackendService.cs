@@ -10,6 +10,11 @@ namespace WifiParisComplete.Domain
 {
     public class MokeBackendService : IBackendService
     {
+        public Task AddWifiHotspot(WifiHotspot wifiHotspot)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<WifiHotspot>> GetMoreWifiHotspots (string postalCodeFilter)
         {
             throw new NotImplementedException ();

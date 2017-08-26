@@ -44,7 +44,7 @@ namespace WifiParisComplete.Domain.Services
         {
             var url = "?dataset=liste-des-antennes-wifi";
             if (!string.IsNullOrEmpty (postalCodeFilter)) {
-                url += $"&refine.code_postal={postalCodeFilter}";
+                url += $"&fields.code_postal={postalCodeFilter}";
             }
             return url;
         }
@@ -52,12 +52,36 @@ namespace WifiParisComplete.Domain.Services
         private async Task<IEnumerable<WifiHotspot>> GetData (string url)
         {
             try {
-                var rootObject = await ApiClient.GetAsync<RootObject> (url);
-                var list = rootObject.Records.Select (x => WifiHotspotMapper.Map (x)).ToList ();
-                return list;
+                if (ApiClient.IsLocal)
+                {
+                    var rootObject = await ApiClient.GetAsync<List<Record>>(url);
+                    var list = rootObject.Select(x => WifiHotspotMapper.Map(x)).ToList();
+                    return list;
+                }
+                else
+                {
+                    var rootObject = await ApiClient.GetAsync<RootObject>(url);
+                    var list = rootObject.Records.Select(x => WifiHotspotMapper.Map(x)).ToList();
+                    return list;
+                }
             } catch (Exception e) {
                 Debug.WriteLine ($"error : {e.Message}");
                 return new List<WifiHotspot> ();
+            }
+        }
+
+        public async Task AddWifiHotspot(WifiHotspot wifiHotspot)
+        {
+            try{
+                if(ApiClient.IsLocal)
+                {
+                    var record = WifiHotspotMapper.MapBack(wifiHotspot);
+                    var response = await ApiClient.PostAsync<object, Record>("", record);
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine($"error : {e.Message}");
             }
         }
     }

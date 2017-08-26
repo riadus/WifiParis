@@ -10,17 +10,26 @@ namespace WifiParisComplete.ViewModels
         public HomeViewModel (INavigationService navigationService)
         {
             NavigationService = navigationService;
-            NavigationToWifiPageButtonText = "Aller à la page de la liste des points Wifi";
-            NavigateToWifiPageCommand = new MvxCommand (NavigateToWifiPage);
+			NavigationToWifiPageButtonText = "Aller à la page de la liste des points Wifi";
+			NavigationToAddNewPageButtonText = "Ajouter un nouveau point Wifi";
+			NavigateToWifiPageCommand = new MvxCommand(NavigateToWifiPage);
+			NavigateToAddNewPageCommand = new MvxCommand (NavigateToAddNewPage);
         }
 
-        public ICommand NavigateToWifiPageCommand { get; }
+		public ICommand NavigateToWifiPageCommand { get; }
+		public ICommand NavigateToAddNewPageCommand { get; }
 
         private void NavigateToWifiPage ()
         {
             NavigationService.ShowWifiPage ();
         }
 
-        public string NavigationToWifiPageButtonText { get; }
+		private void NavigateToAddNewPage()
+		{
+			NavigationService.ShowAddNew();
+		}
+
+		public string NavigationToWifiPageButtonText { get; }
+		public string NavigationToAddNewPageButtonText { get; }
     }
 }

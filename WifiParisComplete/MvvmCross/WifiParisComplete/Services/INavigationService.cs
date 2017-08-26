@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using WifiParisComplete.Data;
-
-namespace WifiParisComplete.Services
+﻿namespace WifiParisComplete.Services
 {
     public interface INavigationService
     {
         void ShowHomePage ();
         void ShowWifiPage ();
         void ShowMap ();
+        void ShowAddNew();
     }
 }

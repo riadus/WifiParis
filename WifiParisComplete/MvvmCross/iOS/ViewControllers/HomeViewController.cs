@@ -24,7 +24,15 @@ namespace WifiParisComplete.iOS
                                       .For ("Title")
                                       .To (vm => vm.NavigationToWifiPageButtonText);
 
-            bindingSet.Bind (View)
+			bindingSet.Bind(AddNewButton)
+									  .To(vm => vm.NavigateToAddNewPageCommand);
+
+			bindingSet.Bind(AddNewButton)
+									  .For("Title")
+									  .To(vm => vm.NavigationToAddNewPageButtonText);
+
+
+			bindingSet.Bind (View)
                       .For (v => v.BackgroundColor)
                       .To (vm => vm.IsBusy)
                       .WithConversion(new BusyToBackgroundColorConverter());
@@ -37,6 +45,9 @@ namespace WifiParisComplete.iOS
             base.ViewDidLoad ();
             NavigateButton.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
             NavigateButton.TitleLabel.TextAlignment = UITextAlignment.Center;
+
+			AddNewButton.TitleLabel.LineBreakMode = UILineBreakMode.WordWrap;
+			AddNewButton.TitleLabel.TextAlignment = UITextAlignment.Center;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using WifiParisComplete.Data;
 using WifiParisComplete.Domain.API;
 using WifiParisComplete.Domain.Attributes;
@@ -29,6 +31,23 @@ namespace WifiParisComplete.Domain
                 Coordinates = coordinates,
                 Name = source.Fields.Nom,
                 SiteId = source.Fields.NumeroSiteVdp
+            };
+        }
+
+        public Record MapBack(WifiHotspot source)
+        {
+            var fields = AddressMapper.MapBack(source.Address);
+            fields.Nom = source.Name;
+            fields.NumeroSiteVdp = source.SiteId;
+            fields.Xy = new List<double>{ source.Coordinates.Latitude,
+                source.Coordinates.Longitude};
+            return new Record
+            {
+                Fields = fields,
+                Recordid = source.Id.ToString(),
+                Datasetid = "liste-des-antennes-wifi",
+                RecordTimestamp = DateTime.Now.ToString()
+
             };
         }
     }

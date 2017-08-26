@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MvvmCross.Core.ViewModels;
-using WifiParisComplete.Data;
+﻿using MvvmCross.Core.ViewModels;
 using WifiParisComplete.Domain.Attributes;
 using WifiParisComplete.ViewModels;
 
@@ -24,5 +21,10 @@ namespace WifiParisComplete.Services
         {
             ShowViewModel<WifiHotspotsViewModel> ();
         }
-    }
+
+		public void ShowAddNew()
+		{
+			ShowViewModel<AddNewHotspotViewModel>();
+		}
+	}
 }

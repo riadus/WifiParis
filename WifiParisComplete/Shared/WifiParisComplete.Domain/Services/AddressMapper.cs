@@ -12,8 +12,18 @@ namespace WifiParisComplete.Domain
         {
             return new Address {
                 City = source.Ville,
-                PostalCode = source.CodePostal,
+                PostalCode = source.CodePostal.ToString(),
                 Street = source.AdressePostale
+            };
+        }
+
+        public Fields MapBack(Address source)
+        {
+            return new Fields
+            {
+                Ville = source.City,
+                CodePostal = Int32.Parse(source.PostalCode),
+                AdressePostale = source.Street
             };
         }
     }
