@@ -24,7 +24,6 @@ namespace WifiParisComplete.ViewModels
             NavigationService = navigationService;
             LoadWifiHotspotsCommand = new MvxAsyncCommand (LoadWifiHotspots);
             LoadMoreWifiHotspotsCommand = new MvxAsyncCommand (LoadMoreWifiHotspots);
-            AddWifiHotspotCommand = new MvxAsyncCommand(AddWifiHotspot);
             LoadMapCommand = new MvxCommand (LoadMap);
             LoadWifiHotspotsButtonText = "Charger la liste des points Wifi";
             FilterPlaceholder = "Filtre par code postal";
@@ -34,7 +33,6 @@ namespace WifiParisComplete.ViewModels
         public ICommand LoadMapCommand { get; }
         public ICommand LoadWifiHotspotsCommand { get; }
 		public ICommand LoadMoreWifiHotspotsCommand { get; }
-        public ICommand AddWifiHotspotCommand { get; }
 
         private async Task LoadMoreWifiHotspots ()
         {
@@ -59,31 +57,9 @@ namespace WifiParisComplete.ViewModels
             BusyCounter--;
         }
 
-        private async Task AddWifiHotspot()
-        {
-            BusyCounter++;
-            var hotspotWifi = new WifiHotspot
-            {
-                Address = new Address{
-                    City = "Nantes",
-                    PostalCode = "44000",
-                    Street = "1 Rue de Rennes",
-                },
-                Id = 0,//_hotspots.Count(),
-                SiteId = "",//_hotspots.Count().ToString(),
-                Name = "New Nantes",
-                Coordinates = new Coordinates{
-                    Latitude = 58,
-                    Longitude = 2
-                }
-            };
-            await BackendService.AddWifiHotspot(hotspotWifi).ConfigureAwait(false);
-            BusyCounter--;
-        }
-
         public string LoadMapButtonText { get; }
         public string LoadWifiHotspotsButtonText { get; }
-        MvxObservableCollection<WifiHotspotItemViewModel> _wifiHotspotsList;
+        MvxObservableCollection<WifiHotspotItemViewModel> _wifiHotspotsList = new MvxObservableCollection<WifiHotspotItemViewModel>();
 
         public MvxObservableCollection<WifiHotspotItemViewModel> WifiHotspotsList {
             get {

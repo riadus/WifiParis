@@ -38,6 +38,7 @@
     <Compile Include="ViewModels\WifiHotspotItemViewModel.cs" />
     <Compile Include="ViewModels\AddNewHotspotViewModel.cs" />
     <Compile Include="ViewModels\HotspotsMapViewModel.cs" />
+    <Compile Include="Services\IDeviceInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MvvmCross.Platform">

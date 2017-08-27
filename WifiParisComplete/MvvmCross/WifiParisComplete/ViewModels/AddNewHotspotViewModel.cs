@@ -3,19 +3,28 @@ using System.Threading.Tasks;
 using MvvmCross.Core.ViewModels;
 using WifiParisComplete.Data;
 using WifiParisComplete.Domain.Interfaces;
+using WifiParisComplete.Services;
 
 namespace WifiParisComplete.ViewModels
 {
     public class AddNewHotspotViewModel : BaseViewModel
     {
-        private IBackendService BackendService { get; }
+		private IBackendService BackendService { get; }
+		private IDeviceInfo DeviceInfo { get; }
         private WifiHotspot _wifiHotspot;
-        public AddNewHotspotViewModel(IBackendService backendService)
+        public AddNewHotspotViewModel(IBackendService backendService, IDeviceInfo deviceInfo)
         {
 			OkCommand = new MvxAsyncCommand(Ok);
             CancelCommand = new MvxCommand(Cancel);
             BackendService = backendService;
+            DeviceInfo = deviceInfo;
             InitModel();
+            SetEndOfLabels();
+        }
+
+        private void SetEndOfLabels()
+        {
+            _endOfLabels = DeviceInfo.Brand == DevicePlatform.iOS ? " :" : string.Empty;
         }
 
         private void InitModel()
@@ -26,14 +35,14 @@ namespace WifiParisComplete.ViewModels
 				Coordinates = new Coordinates()
 			};
         }
-
+        private string _endOfLabels;
         public string TitleLabel => "Ajouter une nouvelle borne";
-		public string NameLabel => "Nom de la borne :";
-		public string AddressLabel => "Adresse :";
-        public string PostalCodeLabel => "Code postal :";
-        public string CityLabel => "Ville :";
-		public string LatLabel => "Lattitude  :";
-		public string LongLabel => "Longitude  :";
+		public string NameLabel => $"Nom de la borne{_endOfLabels}";
+        public string AddressLabel => $"Adresse{_endOfLabels}";
+        public string PostalCodeLabel => $"Code postal{_endOfLabels}";
+        public string CityLabel => $"Ville{_endOfLabels}";
+		public string LatLabel => $"Lattitude{_endOfLabels}";
+		public string LongLabel => $"Longitude{_endOfLabels}";
 
         public string OkButtonTxt => "Ajouter";
         public string CancelButtonTxt => "Annuler saisie";
@@ -55,25 +64,35 @@ namespace WifiParisComplete.ViewModels
         public string Name
         {
             get { return _wifiHotspot.Name; }
-            set { _wifiHotspot.Name = value; }
+            set
+            {
+                _wifiHotspot.Name = value;
+                Validate();
+            }
         }
 
 		public string Address
 		{
 			get { return _wifiHotspot.Address.Street; }
-            set { _wifiHotspot.Address.Street = value; }
+            set { _wifiHotspot.Address.Street = value;
+				Validate();
+			}
 		}
 
 		public string PostalCode
 		{
 			get { return _wifiHotspot.Address.PostalCode; }
-			set { _wifiHotspot.Address.PostalCode = value; }
+			set { _wifiHotspot.Address.PostalCode = value;
+				Validate();
+			}
 		}
 
 		public string City
 		{
 			get { return _wifiHotspot.Address.City; }
-			set { _wifiHotspot.Address.City = value; }
+			set { _wifiHotspot.Address.City = value;
+				Validate();
+			}
 		}
 
         private string _lat;
@@ -87,7 +106,8 @@ namespace WifiParisComplete.ViewModels
             set
             {
                 _lat = value;
-            }
+				Validate();
+			}
         }
 
         private string _long;
@@ -101,7 +121,8 @@ namespace WifiParisComplete.ViewModels
             set
             {
                 _long = value;
-            }
+				Validate();
+			}
         }
 
         public IMvxCommand OkCommand { get; }
@@ -109,7 +130,6 @@ namespace WifiParisComplete.ViewModels
 
         private async Task Ok()
         {
-            Validate();
             if (IsModelValid)
             {
                 await BackendService.AddWifiHotspot(_wifiHotspot).ConfigureAwait(false);
@@ -120,6 +140,8 @@ namespace WifiParisComplete.ViewModels
         private void Cancel()
         {
             InitModel();
+            Lat = string.Empty;
+            Long = string.Empty;
             RaiseAllPropertiesChanged();
         }
 

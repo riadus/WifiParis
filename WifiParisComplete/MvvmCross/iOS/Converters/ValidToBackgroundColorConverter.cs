@@ -9,8 +9,7 @@ namespace WifiParisComplete.iOS.Converters
     {
         public object Convert(object value, Type targetType, object isReversed, CultureInfo culture)
         {
-            var isValid = (bool)value && !(bool)isReversed;
-
+            var isValid = (bool)value;
             return !isValid ? UIColor.Red : UIColor.White;
         }
 

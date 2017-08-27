@@ -177,6 +177,7 @@
       <DependentUpon>AddHotspotView.cs</DependentUpon>
     </Compile>
     <Compile Include="Converters\ValidToBackgroundColorConverter.cs" />
+    <Compile Include="IoC\DeviceInfoIOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\WifiParisComplete\WifiParisComplete.csproj">

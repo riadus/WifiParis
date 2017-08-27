@@ -5,6 +5,8 @@ using MvvmCross.Droid.Platform;
 using MvvmCross.Platform;
 using SQLite.Net.Platform.XamarinAndroid;
 using WifiParisComplete.Domain;
+using WifiParisComplete.Droid.IoC;
+using WifiParisComplete.Services;
 using WifiParisComplete.SqLite;
 
 namespace WifiParisComplete.Droid
@@ -33,7 +35,8 @@ namespace WifiParisComplete.Droid
         protected override void InitializePlatformServices ()
         {
             Mvx.RegisterType<IFilePathProvider, FilePathProviderDroid> ();
-            Mvx.RegisterType<IMessageHandlerProvider, MessageHandlerProviderDroid> ();
+			Mvx.RegisterType<IMessageHandlerProvider, MessageHandlerProviderDroid>();
+			Mvx.RegisterType<IDeviceInfo, DeviceInfoDroid> ();
             base.InitializePlatformServices ();
         }
     }
