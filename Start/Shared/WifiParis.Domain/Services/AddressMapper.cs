@@ -16,5 +16,15 @@ namespace WifiParis.Domain
                 Street = source.AdressePostale
             };
         }
+
+		public Fields MapBack(Address source)
+		{
+			return new Fields
+			{
+				Ville = source.City,
+				CodePostal = Int32.Parse(source.PostalCode),
+				AdressePostale = source.Street
+			};
+		}
     }
 }

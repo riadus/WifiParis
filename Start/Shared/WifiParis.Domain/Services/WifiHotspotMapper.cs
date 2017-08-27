@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using WifiParis.Data;
 using WifiParis.Domain.API;
 using WifiParis.Domain.Attributes;
@@ -32,5 +34,22 @@ namespace Wifi.Domain
                 SiteId = source.Fields.NumeroSiteVdp
             };
         }
+
+		public Record MapBack(WifiHotspot source)
+		{
+			var fields = AddressMapper.MapBack(source.Address);
+			fields.Nom = source.Name;
+			fields.NumeroSiteVdp = source.SiteId;
+			fields.Xy = new List<double>{ source.Coordinates.Latitude,
+				source.Coordinates.Longitude};
+			return new Record
+			{
+				Fields = fields,
+				Recordid = source.Id.ToString(),
+				Datasetid = "liste-des-antennes-wifi",
+				RecordTimestamp = DateTime.Now.ToString()
+
+			};
+		}
     }
 }

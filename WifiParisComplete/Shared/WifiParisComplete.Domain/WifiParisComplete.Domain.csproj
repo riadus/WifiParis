@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9619B956-4A2E-4C64-A387-D7944370AD8A}</ProjectGuid>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UseMSBuildEngine>true</UseMSBuildEngine>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WifiParisComplete.Domain</RootNamespace>
+    <AssemblyName>WifiParisComplete.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Attributes\RegisterInterfaceAsDynamicAttribute.cs" />
+    <Compile Include="Attributes\RegisterInterfaceAsLazySingletonAttribute.cs" />
+    <Compile Include="API\Fields.cs" />
+    <Compile Include="API\Geometry.cs" />
+    <Compile Include="API\Record.cs" />
+    <Compile Include="API\RootObject.cs" />
+    <Compile Include="API\Parameters.cs" />
+    <Compile Include="API\FacetGroup.cs" />
+    <Compile Include="API\Facet.cs" />
+    <Compile Include="Interfaces\IBackendService.cs" />
+    <Compile Include="Services\BackendService.cs" />
+    <Compile Include="Interfaces\IApiClient.cs" />
+    <Compile Include="Services\ApiClient.cs" />
+    <Compile Include="DomainAssemblyReference.cs" />
+    <Compile Include="Interfaces\IMapper.cs" />
+    <Compile Include="Services\WifiHotspotMapper.cs" />
+    <Compile Include="Services\AddressMapper.cs" />
+    <Compile Include="Interfaces\IFilePathProvider.cs" />
+    <Compile Include="Services\MokeBackendService.cs" />
+    <Compile Include="Interfaces\IMessageHandlerProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Attributes\" />
+    <Folder Include="API\" />
+    <Folder Include="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WifiParisComplete.Data\WifiParisComplete.Data.csproj">
+      <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
+      <Name>WifiParisComplete.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+</Project>
