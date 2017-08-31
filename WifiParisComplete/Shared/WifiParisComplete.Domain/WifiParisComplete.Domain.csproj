@@ -47,7 +47,7 @@
     <Compile Include="Services\WifiHotspotMapper.cs" />
     <Compile Include="Services\AddressMapper.cs" />
     <Compile Include="Interfaces\IFilePathProvider.cs" />
-    <Compile Include="Services\MokeBackendService.cs" />
+    <Compile Include="Services\MockBackendService.cs" />
     <Compile Include="Interfaces\IMessageHandlerProvider.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +55,7 @@
     <Folder Include="Attributes\" />
     <Folder Include="API\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Content\" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -69,6 +70,9 @@
       <Project>{FC6C68B0-9495-486A-9EB3-79C02EA5F14B}</Project>
       <Name>WifiParisComplete.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Content\Data.json" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

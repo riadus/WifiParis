@@ -10,7 +10,6 @@ using System.Diagnostics;
 
 namespace WifiParisComplete.Domain.Services
 {
-    [RegisterInterfaceAsDynamic]
     public class BackendService : IBackendService
     {
         private IMapper<Record, WifiHotspot> WifiHotspotMapper { get; }
