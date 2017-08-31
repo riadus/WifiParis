@@ -4,7 +4,6 @@
     BackgroundColor="Yellow"
     x:Class="WifiParisComplete.XF.Pages.HomePage">
 	<ContentPage.Content>
-        <Button VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand"
-                Text="{Binding NavigationToWifiPageButtonText}" Command="{Binding NavigateToWifiPageCommand}" />
+
     </ContentPage.Content>
 </ContentPage>
